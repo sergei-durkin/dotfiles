@@ -1,0 +1,1 @@
+vim.keymap.set("n", "s", ":HopChar1<CR>", { silent = true })
