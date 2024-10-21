@@ -3,31 +3,37 @@
 ## Preview
 ![Preview](./img/preview.png)
 
-### Theme
-`catppuccin-macchiato`
+### Description
 
-### Terminal
-`Alacritty`
-
-### Shell
-`zsh`
-
-### Shell-Prompt
-`starship`
-
-### Font
-`MesloLGS NF`
+ - Theme `catppuccin-macchiato`
+ - Editor `Neovim`
+ - Terminal `Alacritty`
+    - Shell `zsh`
+    - Multiplexer `tmux`
+    - Prompt `starship`
+    - Font `MesloLGS NF`
 
 ### Telescope
-![FindInBuffer](./img/find_in_buffer.png)
-![FindFiles](./img/find_files.png)
-![FindInFiles](./img/find_in_files.png)
+
+#### FindInBuffer:
+  - Keybinding: `<command>f`
+  - Preview: ![FindInBuffer](./img/find_in_buffer.png)
+
+#### FindFiles:
+  - Keybinding: `<leader>sf`
+  - Preview: ![FindFiles](./img/find_files.png)
+
+#### FindInFiles: 
+  - Keybinding: `<command-shift>f`
+  - Preview: ![FindInFiles](./img/find_in_files.png)
 
 ### LazyGit
-![LazyGit](./img/git_ui.png)
+  - Keybinding: `<leader>lg`
+  - Preview: ![LazyGit](./img/git_ui.png)
 
 ### Neotree
-![Neotree](./img/file_tree.png)
+  - Keybinding: `<leader>e`
+  - Preview: ![Neotree](./img/file_tree.png)
 
 ## Plugins
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
