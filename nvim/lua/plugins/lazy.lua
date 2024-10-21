@@ -15,6 +15,23 @@ vim.o.termguicolors = true
 
 require('lazy').setup({
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require('catppuccin').setup({
+        highlight_overrides = {
+          all = function(colors)
+            return {
+              NonText = { fg = "#384057" },
+              ["@variable.go"] = { fg = "#AFB7D4" },
+            }
+          end,
+        },
+      })
+    end
+  },
+  {
   "kr40/nvim-macros",
   cmd = {"MacroSave", "MacroYank", "MacroSelect", "MacroDelete"},
   opts = {
@@ -132,20 +149,6 @@ require('lazy').setup({
         desc = "Buffer Local Keymaps (which-key)",
       },
     },
-  },
-  {
-    "loctvl842/monokai-pro.nvim",
-    config = function()
-      require("monokai-pro").setup({
-        override = function(c)
-          return {
-            NonText = { fg = "#555555" },
-            ["@variable.go"] = { fg = c.base.dimmed1 },
-            ["@property.go"] = { fg = "#d7deb6" }
-          }
-        end,
-      })
-    end,
   },
   'tpope/vim-fugitive',
   'lewis6991/gitsigns.nvim',

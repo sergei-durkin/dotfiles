@@ -1,8 +1,8 @@
 local statuscolumn = {
-  bg = "#373438",
+  bg = "#323448",
   colors = {
-    number = "#505258",
-    number_current = "#9FA0A8",
+    number = "#606684",
+    number_current = "#B9C4F8",
 
     diagnostics = {
       error = "#FF6188",
@@ -12,9 +12,9 @@ local statuscolumn = {
     },
 
     git = {
-      added = "#A7DB75",
-      modified = "#FC9A69",
-      removed = "#FF6188",
+      added = "#A6DA95",
+      modified = "#EED4A0",
+      removed = "#ED8796",
     },
 
     git_staged = {

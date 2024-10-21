@@ -25,7 +25,7 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 --vim.cmd [[colorscheme onedark]]
 vim.o.termguicolors = true
-vim.cmd.colorscheme "monokai-pro"
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'

@@ -1,10 +1,37 @@
 # My config files and settings
 
 ## Preview
-![Preview](./preview.png)
+![Preview](./img/preview.png)
+
+### Theme
+`catppuccin-macchiato`
+
+### Terminal
+`Alacritty`
+
+### Shell
+`zsh`
+
+### Shell-Prompt
+`starship`
+
+### Font
+`MesloLGS NF`
+
+### Telescope
+![FindInBuffer](./img/find_in_buffer.png)
+![FindFiles](./img/find_files.png)
+![FindInFiles](./img/find_in_files.png)
+
+### LazyGit
+![LazyGit](./img/git_ui.png)
+
+### Neotree
+![Neotree](./img/file_tree.png)
 
 ## Plugins
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
@@ -16,7 +43,6 @@
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [rmagatti/auto-session](https://github.com/rmagatti/auto-session)
