@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
-    icons_enabled = true,
-    component_separators = '|',
+    icons_enabled = false,
+    component_separators = '',
     section_separators = '',
   },
   sections = {
