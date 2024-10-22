@@ -3,3 +3,5 @@ jgit
 github-copilot
 zprezto
 .zcompdump
+.DS_Store
+*.brief

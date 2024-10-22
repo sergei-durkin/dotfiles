@@ -33,5 +33,6 @@ bindings = [
     { key = "t", mods = "Command", chars = "⌘t"},
     { key = "n", mods = "Command", chars = "⌘n"},
     { key = "i", mods = "Command", chars = "⌘i"},
+    { key = "w", mods = "Command|Shift", chars = "⌘W"},
     { key = "h", chars = "h"}
 ]
