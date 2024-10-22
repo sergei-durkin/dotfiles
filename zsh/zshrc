@@ -57,11 +57,11 @@ alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 
 # Dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+alias ..="z .."
+alias ...="z ../.."
+alias ....="z ../../.."
+alias .....="z ../../../.."
+alias ......="z ../../../../.."
 
 # Minikube
 alias kubectl="minikube kubectl --"
@@ -76,10 +76,22 @@ alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2  --icons --git"
 
+fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
+cd_to_dir() {
+    local selected_dir
+    selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+    if [[ -n "$selected_dir" ]]; then
+        z "$selected_dir" || return 1
+    fi
+}
+
+alias cd='cd_to_dir'
+
 alias zcfg="nvim ~/.zshrc"
 alias rr="sh ~/remap.sh"
 alias sb="cd ~/sandbox"
 alias p="cd ~/p"
+alias cat="bat"
 
 eval "$(zoxide init zsh)"
 
