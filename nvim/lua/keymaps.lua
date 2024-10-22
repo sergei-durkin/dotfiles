@@ -30,7 +30,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("i", "<F2>", "<ESC>:w!<CR>", { silent = true })
 vim.keymap.set({"n","v"}, "`", ":", { noremap = true })
 vim.keymap.set({"n","v"}, "<F2>", ":w!<CR>", { silent = true })
--- vim.keymap.set({"n","v"}, "q", "<ESC>:GoTermClose<CR>", { silent = true })
 
 -- Keymaps for dvorak users
 vim.opt.langmap = "dh,hj,tk,nl,kd,jt,DH,HJ,TK,NL,KD,JT"
@@ -41,3 +40,5 @@ vim.keymap.set("n", "<leader>ll", "<cmd>GoIfErr<cr>", { silent = true, noremap =
 -- Keymaps for scrolling
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })
 vim.keymap.set({"n", "v"}, "⌃k", "20kzz", { noremap = true })
+
+vim.keymap.set({"i", "n", "v"}, "⌘W", "<ESC>:wq<CR>", { silent = true, noremap = true })
