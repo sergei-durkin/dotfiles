@@ -5,7 +5,16 @@ format = """
 $directory\
 $character"""
 
-right_format = "$all"
+right_format = """
+$git_branch\
+$git_status\
+$git_state\
+$golang\
+$nodejs\
+$php\
+$docker_context\
+$kubernetes\
+"""
 command_timeout = 1000
 
 [git_branch]
