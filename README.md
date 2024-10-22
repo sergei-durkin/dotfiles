@@ -1,7 +1,66 @@
 # My config files and settings
 
+This repository contains my configuration files for the following tools:
+- Neovim
+- Alacritty
+- Zsh
+- Tmux
+- Starship
+
+
+## Table of contents
+- [Preview](#preview)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+- [Description](#description)
+- [Plugins](#plugins)
+
 ## Preview
 ![Preview](./img/preview.png)
+
+## Installation
+
+### Prerequisites
+- [Neovim](https://github.com/neovim/neovim)
+- [Alacritty](https://github.com/alacritty/alacritty)
+- [Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- [Tmux](https://github.com/tmux/tmux)
+- [Starship](https://github.com/starship/starship)
+- [MesloLGS NF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo)
+
+### Steps
+##### Clone the repository
+```bash
+git clone https://github.com/sergei-durkin/dotfiles.git
+```
+
+##### Create a symbolic link to the `nvim` directory
+```bash
+ln -sf ~/dotfiles/nvim ~/.config/nvim
+```
+
+##### Create a symbolic link to the `alacritty` directory
+```bash
+ln -sf ~/dotfiles/alacritty ~/.config/alacritty
+```
+
+##### Create a symbolic link to the `zshrc` file
+```bash
+ln -sf ~/dotfiles/zshrc ~/.zshrc
+```
+
+##### Create a symbolic link to the `tmux.conf` file
+```bash
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+```
+
+##### Create a symbolic link to the `starship.toml` file
+```bash
+ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
+```
+
+---
 
 ### Description
 
@@ -13,27 +72,39 @@
     - Prompt `starship`
     - Font `MesloLGS NF`
 
+---
+
 ### Telescope
 
 #### FindInBuffer:
   - Keybinding: `<command>f`
   - Preview: ![FindInBuffer](./img/find_in_buffer.png)
 
+---
+
 #### FindFiles:
   - Keybinding: `<leader>sf`
   - Preview: ![FindFiles](./img/find_files.png)
+
+---
 
 #### FindInFiles: 
   - Keybinding: `<command-shift>f`
   - Preview: ![FindInFiles](./img/find_in_files.png)
 
+---
+
 ### LazyGit
   - Keybinding: `<leader>lg`
   - Preview: ![LazyGit](./img/git_ui.png)
 
+---
+
 ### Neotree
   - Keybinding: `<leader>e`
   - Preview: ![Neotree](./img/file_tree.png)
+
+---
 
 ## Plugins
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
