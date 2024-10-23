@@ -1,6 +1,6 @@
 add_newline = false
 
-palette = "catppuccin_macchiato"
+palette = "custom"
 format = """
 $directory\
 $character"""
@@ -53,21 +53,21 @@ format = '[$symbol$context( \($namespace\))]($style) '
 [docker_context]
 disabled = true
 
-[palettes.catppuccin_macchiato]
+[palettes.custom]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
-pink = "#f5bde6"
+pink = "#f70067"
 mauve = "#c6a0f6"
-red = "#ed8796"
+red = "#f43753"
 maroon = "#ee99a0"
 peach = "#f5a97f"
 yellow = "#eed49f"
 green = "#a6da95"
 teal = "#8bd5ca"
-sky = "#91d7e3"
+sky = "#73cef4"
 sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
+blue = "#b3deef"
+lavender = "#9876AA"
 text = "#cad3f5"
 subtext1 = "#b8c0e0"
 subtext0 = "#a5adcb"

@@ -5,3 +5,5 @@ zprezto
 .zcompdump
 .DS_Store
 *.brief
+btop
+pgcli
