@@ -76,7 +76,7 @@ alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2  --icons --git"
 
-fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
+fcd() { z "$(find . -type d -not -path '*/.*' | fzf)" && l; }
 cd_to_dir() {
     local selected_dir
     selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
@@ -89,8 +89,8 @@ alias cd='cd_to_dir'
 
 alias zcfg="nvim ~/.zshrc"
 alias rr="sh ~/remap.sh"
-alias sb="cd ~/sandbox"
-alias p="cd ~/p"
+alias sb="z ~/sandbox"
+alias p="z ~/p"
 alias cat="bat"
 
 eval "$(zoxide init zsh)"

@@ -145,6 +145,24 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+require('lspconfig').gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    gopls = {
+      semanticTokens = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
 -- Turn on lsp status information
 require('fidget').setup()
 

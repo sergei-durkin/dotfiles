@@ -19,6 +19,8 @@ vim.api.nvim_set_keymap("n", "<leader>bp", ":DapToggleBreakpoint<CR>", {noremap=
 vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", {noremap=true})
 
+vim.api.nvim_set_keymap("n", "<leader>fs", ":GoFillStruct<CR>", {silent = true, noremap=true})
+
 vim.keymap.set("n", "<F3>", ":GoTestFunc<CR>", {noremap=true})
 vim.keymap.set("n", "<F4>", ":GoDebug<CR>", {noremap=true})
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
