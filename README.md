@@ -1,19 +1,21 @@
 # My config files and settings
 
-This repository contains my configuration files for the following tools:
-- Neovim
-- Alacritty
-- Zsh
-- Tmux
-- Starship
-
-
 ## Table of contents
 - [Preview](#preview)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
 - [Description](#description)
+- Screenshots
+  - [GotoPreview](#gotopreview)
+  - [FloaX](#floax)
+  - [SessionX](#sessionx)
+  - [Telescope](#telescope)
+    - [FindInBuffer](#findinbuffer)
+    - [FindFiles](#findfiles)
+    - [FindInFiles](#findinfiles)
+  - [LazyGit](#lazygit)
+  - [Neotree](#neotree)
 - [Plugins](#plugins)
 
 ## Preview
@@ -64,13 +66,31 @@ ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 
 ### Description
 
- - Theme `catppuccin-macchiato`
+ - Theme `darcula`
  - Editor `Neovim`
  - Terminal `Alacritty`
     - Shell `zsh`
     - Multiplexer `tmux`
     - Prompt `starship`
     - Font `MesloLGS NF`
+
+---
+
+### GotoPreview
+  - Keybinding: `<leader>gp*` (where `*` is the `d - definition`, `r - reference`, `i - implementation`)
+  - Preview: ![GotoPreview](./img/goto_preview.png)
+
+---
+
+### FloaX
+  - Keybinding: `<tmux-leader>p`
+  - Preview: ![FloaX](./img/floax.png)
+
+---
+
+### SessionX
+  - Keybinding: `<tmux-leader>o`
+  - Preview: ![SessionX](./img/sessionx.png)
 
 ---
 
@@ -101,13 +121,16 @@ ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 ---
 
 ### Neotree
+  > _Looks bad with the current theme._
+  > _May be I will fix it later._
+
   - Keybinding: `<leader>e`
   - Preview: ![Neotree](./img/file_tree.png)
 
 ---
 
-## Plugins
-- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+## Nvim Plugins
+- [xiantang/dacula-dark.nvim](https://github.com/xiantang/darcula-dark.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
@@ -169,3 +192,17 @@ ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 - [nvim-telescope/telescope-symbols.nvim](https://github.com/nvim-telescope/telescope-symbols.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
+
+### Tmux Plugins
+- [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+- [tmux-plugins/tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+- [tmux-plugins/tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+- [tmux-plugins/tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
+- [omerxx/tmux-floax](https://github.com/omerxx/tmux-floax)
+- [omerxx/tmux-sessionx](https://github.com/omerxx/tmux-sessionx)
+- [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
+- [fcsonline/tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)
+- [sainnhe/tmux-fzf](https://github.com/sainnhe/tmux-fzf)
+- [wfxr/tmux-fzf-url](https://github.com/wfxr/tmux-fzf-url)
+
+
