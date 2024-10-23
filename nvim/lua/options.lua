@@ -25,7 +25,8 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 --vim.cmd [[colorscheme onedark]]
 vim.o.termguicolors = true
-vim.cmd.colorscheme "catppuccin-macchiato"
+--vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "darcula-dark"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'
@@ -69,5 +70,3 @@ vim.filetype.add({
 
 -- Auto Sessions
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
-vim.o.statuscolumn = "%!v:lua.require('plugins.statuscolumn').setup()";

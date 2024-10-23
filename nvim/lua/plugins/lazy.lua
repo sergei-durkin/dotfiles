@@ -15,21 +15,23 @@ vim.o.termguicolors = true
 
 require('lazy').setup({
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+    "xiantang/darcula-dark.nvim",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+    },
     config = function()
-      require('catppuccin').setup({
-        highlight_overrides = {
-          all = function(colors)
-            return {
-              NonText = { fg = "#384057" },
-              ["@variable.go"] = { fg = "#AFB7D4" },
-            }
-          end,
+      require("darcula").setup({
+        opt = {
+          integrations = {
+            telescope = false,
+            lualine = true,
+            lsp_semantics_token = true,
+            nvim_cmp = true,
+            dap_nvim = true,
+          },
         },
       })
-    end
+    end,
   },
   {
   "kr40/nvim-macros",
