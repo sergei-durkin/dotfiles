@@ -41,4 +41,4 @@ vim.keymap.set("n", "<leader>ll", "<cmd>GoIfErr<cr>", { silent = true, noremap =
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })
 vim.keymap.set({"n", "v"}, "⌃k", "20kzz", { noremap = true })
 
-vim.keymap.set({"i", "n", "v"}, "⌘W", "<ESC>:wq<CR>", { silent = true, noremap = true })
+vim.keymap.set({"i", "n", "v"}, "⌘W", "<ESC>:wq!<CR>", { silent = true, noremap = true })

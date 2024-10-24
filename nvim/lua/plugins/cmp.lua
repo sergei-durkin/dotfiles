@@ -3,13 +3,9 @@ local luasnip = require('luasnip')
 
 cmp.setup({
   window = {
-    border = "rounded",
-  },
-  completion = {
-      border = "rounded",
-  },
-  view = {
-    entries = "native"
+    documentation = cmp.config.window.bordered({
+      border = "single"
+    })
   },
   snippet = {
     expand = function(args)
