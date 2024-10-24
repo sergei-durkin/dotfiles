@@ -8,7 +8,7 @@ require('plugins.statuscoolumn.init').setup({
   },
   colors = {
     cursorline = {
-      bg = "#383838",
+      bg = "#2C2D30",
     },
     number = {
       normal = "#505258",

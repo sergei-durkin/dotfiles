@@ -81,10 +81,10 @@ local config = {
   diagnostic = {
     virtual_text = { 
       spacing = 4,
-      prefix = " ●",
-      severity = { min = vim.diagnostic.severity.ERROR },
+      prefix = " ",
+      severity = { min = vim.diagnostic.severity.HINT },
     },
-    underline = false,
+    underline = true,
     update_in_insert = false,
     severity_sort = true,
     float = {
@@ -115,7 +115,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, co
 -- Signature help configuration
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, config.float)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = false })
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = true })
 
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'ts_ls', 'gopls' }
 require('mason-lspconfig').setup {
@@ -148,14 +148,12 @@ end
 require('lspconfig').gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  },
   settings = {
     gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
       semanticTokens = true,
       analyses = {
-        unusedparams = true,
         shadow = true,
       },
       staticcheck = true,

@@ -15,12 +15,27 @@ vim.o.termguicolors = true
 
 require('lazy').setup({
   {
-    "xiantang/darcula-dark.nvim",
+    "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  {
+    dir = "~/sandbox/darcula-dark.nvim",
+    url = "sergei-durkin/darcula-dark.nvim",
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },
+    dev = true,
     config = function()
       require("darcula").setup({
+        override = function(c)
+          return {
+            dark = "#1F2023",
+            background = "#2C2D30"
+          }
+        end,
         opt = {
           integrations = {
             telescope = false,
@@ -164,6 +179,31 @@ require('lazy').setup({
     opts = {
         keys = 'etovxqpdygfblzhckisuran'
     }
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    event = "BufRead",
+    config = function()
+      require("nvim-web-devicons").setup({
+        override_by_extension = {
+          ["toml"] = {
+            icon = "",
+            color = "#F288AF",
+            name = "Toml",
+          },
+          ["go"] = {
+            icon = "",
+            color = "#00ADD8",
+            name = "Go"
+          },
+          ["brief"] = {
+            icon = "󱓟",
+            color = "#F28131",
+            name = "Brief"
+          },
+        }
+      })
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

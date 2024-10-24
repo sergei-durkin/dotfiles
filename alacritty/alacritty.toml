@@ -7,6 +7,9 @@ import = [
     "~/.config/alacritty/themes/themes/dark_pastels.toml"
 ]
 
+[colors.primary]
+background = "#1F2023"
+
 [window]
 startup_mode = "Maximized"
 
@@ -21,6 +24,7 @@ size = 15
 bindings = [
     { key = "B", mods = "Command", action = "SpawnNewInstance" },
     { key = "'", mods = "Command", action = "Quit"},
+    { key = "Enter", mods = "Command", chars = "⌘↵"},
     { key = "Back", mods= "Control", chars = "⌃⌫"},
     { key = ",", mods = "Command", chars = "⌘,"},
     { key = "e", mods = "Command", chars = "⌘e"},
