@@ -1,0 +1,16 @@
+enter_accept = true
+
+[stats]
+common_prefix = ["sudo"]
+
+ignored_commands = [
+  "v",
+  "vi",
+  "vim",
+  "nv",
+  "nvi",
+  "nvim",
+]
+
+[sync]
+records = true

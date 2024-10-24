@@ -94,6 +94,7 @@ alias p="z ~/p"
 alias cat="bat"
 
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
