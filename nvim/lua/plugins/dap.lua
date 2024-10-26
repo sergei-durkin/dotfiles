@@ -21,7 +21,39 @@ vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_qu
 
 vim.api.nvim_set_keymap("n", "<leader>fs", ":GoFillStruct<CR>", {silent = true, noremap=true})
 
-vim.keymap.set("n", "<F3>", ":GoTestFunc<CR>", {noremap=true})
+require('treesitter-context').setup({
+  enable = true,
+  max_lines = 2,
+})
+
+local runCurrentFile = function()
+  local command
+
+  if vim.fn.expand('%'):match("_test.go$") then
+    command = "GoTestFunc -v"
+    vim.cmd(command)
+    return
+  end
+
+  if vim.fn.expand('%'):match("main.go$") then
+
+    if vim.fn.search("func main") then
+      command = string.format("GoRun %s -v", vim.fn.expand('%'))
+      vim.cmd(command)
+      return
+    end
+
+    print("No main function found")
+
+    return
+  end
+
+  print("Nothing to run")
+end
+
+vim.keymap.set({"n", "i", "v"}, "<F3>", function() runCurrentFile() end, {silent = true, noremap=true})
+vim.keymap.set({"n", "i", "v"}, "⌘r", function() runCurrentFile() end, {silent = true, noremap=true})
+
 vim.keymap.set("n", "<F4>", ":GoDebug<CR>", {noremap=true})
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 vim.keymap.set('n', '<F6>', function() require('dap').step_over() end)

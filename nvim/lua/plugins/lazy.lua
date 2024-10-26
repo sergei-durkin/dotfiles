@@ -15,6 +15,26 @@ vim.o.termguicolors = true
 
 require('lazy').setup({
   {
+    "nvim-treesitter/nvim-treesitter-context",
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup({
+        prompt_func_return_type = {
+            go = true,
+        },
+        prompt_func_param_type = {
+            go = true,
+        },
+      })
+    end,
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()

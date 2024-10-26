@@ -1,4 +1,11 @@
 require('telescope').load_extension('lazygit')
+require("telescope").load_extension("refactoring")
+
+vim.keymap.set(
+	{"n", "x"},
+	"<leader>rr",
+	function() require('telescope').extensions.refactoring.refactors() end
+)
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
