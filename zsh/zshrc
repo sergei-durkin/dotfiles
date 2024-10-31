@@ -4,7 +4,10 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit
 
-source <(avito completion zsh)
+if command -v avito &> /dev/null; then
+    source <(avito completion zsh)
+fi
+
 source <(fzf --zsh)
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -16,8 +19,6 @@ FZF_COMPLETION_TRIGGER='**'
 FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 plugins=(git wd docker)
-
-HOME=${HOME:-'/Users/sadurkin'}
 
 # GO
 export GOPATH=$HOME/go
@@ -84,8 +85,7 @@ cd_to_dir() {
         z "$selected_dir" || return 1
     fi
 }
-
-alias cd='cd_to_dir'
+alias cdd="cd_to_dir"
 
 alias zcfg="nvim ~/.zshrc"
 alias rr="sh ~/remap.sh"

@@ -1,10 +1,11 @@
 # mkdir -p ~/.config/alacritty/themes
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+[general]
 import = [
-    #"~/.config/alacritty/themes/themes/base16_default_dark.toml"
+    "~/.config/alacritty/themes/themes/base16_default_dark.toml"
     #"~/.config/alacritty/themes/themes/monokai_pro.toml"
     #"~/.config/alacritty/catppuccin-macchiato.toml"
-    "~/.config/alacritty/themes/themes/dark_pastels.toml"
+    #"~/.config/alacritty/themes/themes/dark_pastels.toml"
 ]
 
 [colors.primary]
@@ -14,7 +15,7 @@ background = "#1F2023"
 startup_mode = "Maximized"
 
 [env]
-term = "xterm-256color"
+TERM = "xterm-256color"
 
 [font]
 normal = { family = "MesloLGS NF" }

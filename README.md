@@ -47,32 +47,69 @@ ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/alacritty ~/.config/alacritty
 ```
 
-##### Create a symbolic link to the `zshrc` file
+##### Create a symbolic link to the `zsh` directory
 ```bash
-ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh ~/.config/zsh && \
+ln -sf ~/.config/zsh/zshrc ~/.zshrc
 ```
 
-##### Create a symbolic link to the `tmux.conf` file
+##### Create a symbolic link to the `tmux` directory
 ```bash
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/tmux ~/.config/tmux && \
+ln -sf ~/.config/tmux/tmux.conf ~/.tmux.conf
 ```
 
-##### Create a symbolic link to the `starship.toml` file
+##### Create a symbolic link to the `starship` directory
 ```bash
-ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
+ln -sf ~/dotfiles/starship ~/.config/starship
+```
+
+##### Create a symbolic link to the `fastfetch` directory
+```bash
+ln -sf ~/dotfiles/fastfetch ~/.config/fastfetch
+```
+
+##### Create a symbolic link to the `nix-darwin` directory
+```bash
+ln -sf ~/dotfiles/nix-darwin ~/.config/nix-darwin
+```
+
+##### Create a symbolic link to the `brew` directory
+```bash
+ln -sf ~/dotfiles/brew ~/.config/brew
+```
+
+##### Create a symbolic link to the `atuin` directory
+```bash
+ln -sf ~/dotfiles/atuin ~/.config/atuin
+```
+
+##### Install TPM
+Run git clone to install TPM and then press `prefix + I` to install plugins
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+#### Install `nix-darwin`
+Follow the instructions from the [nix-darwin](https://github.com/LnL7/nix-darwin)
+
+Then run the following command to install the packages
+```bash
+darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
 ```
 
 ---
 
 ### Description
 
+ - Package manager `Nix` and `Homebrew`
  - Theme `darcula`
  - Editor `Neovim`
  - Terminal `Alacritty`
     - Shell `zsh`
     - Multiplexer `tmux`
-    - Prompt `starship`
-    - Font `MesloLGS NF`
+    - Prompt `starship` or `powerlevel10k`
+    - Font `MesloLGS NF` *download from [here](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
 
 ---
 
@@ -195,6 +232,7 @@ ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 
 ### Tmux Plugins
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+- [sergei-durkin/monokai-pro.tmux](https://github.com/sergei-durkin/monokai-pro.tmux)
 - [tmux-plugins/tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
 - [tmux-plugins/tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 - [tmux-plugins/tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
@@ -204,5 +242,3 @@ ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 - [fcsonline/tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)
 - [sainnhe/tmux-fzf](https://github.com/sainnhe/tmux-fzf)
 - [wfxr/tmux-fzf-url](https://github.com/wfxr/tmux-fzf-url)
-
-
