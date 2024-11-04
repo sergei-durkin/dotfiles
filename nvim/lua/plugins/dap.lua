@@ -21,11 +21,6 @@ vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_qu
 
 vim.api.nvim_set_keymap("n", "<leader>fs", ":GoFillStruct<CR>", {silent = true, noremap=true})
 
-require('treesitter-context').setup({
-  enable = true,
-  max_lines = 2,
-})
-
 local runCurrentFile = function()
   local command
 
