@@ -36,6 +36,7 @@
           pkgs.cowsay
           pkgs.tree
           pkgs.delve
+          pkgs.gitmux
         ];
 
       system.activationScripts.applications.text = let

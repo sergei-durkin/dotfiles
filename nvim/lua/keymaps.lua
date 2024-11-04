@@ -4,8 +4,6 @@ vim.api.nvim_set_keymap("i", "eu", "<Esc>", { noremap = false })
 vim.api.nvim_set_keymap("n", "TW", ":Twilight<enter>", { noremap = false })
 
 -- buffers
-vim.api.nvim_set_keymap("n", "<C-d>", ":bprev<enter>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-n>", ":bnext<enter>", { noremap = true })
 vim.api.nvim_set_keymap("n", "⌃⌫", ":bdelete<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "⌘,", ":bdelete<enter>", { noremap = false })
 
@@ -21,7 +19,7 @@ vim.api.nvim_set_keymap("n", "<C-W>.", ":vertical resize +10<CR>", { noremap = t
 vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
 
 -- Quicker close split
-vim.keymap.set("n", "<leader>qq", ":q<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<space>qq", ":q<CR>", { silent = true, noremap = true })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -32,13 +30,17 @@ vim.keymap.set({"n","v"}, "`", ":", { noremap = true })
 vim.keymap.set({"n","v"}, "<F2>", ":w!<CR>", { silent = true })
 
 -- Keymaps for dvorak users
-vim.opt.langmap = "dh,hj,tk,nl,kd,jt,DH,HJ,TK,NL,KD,JT"
-
--- Keymaps for go
-vim.keymap.set("n", "<leader>ll", "<cmd>GoIfErr<cr>", { silent = true, noremap = false })
+vim.opt.langmap = "dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT"
 
 -- Keymaps for scrolling
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })
 vim.keymap.set({"n", "v"}, "⌃k", "20kzz", { noremap = true })
 
-vim.keymap.set({"i", "n", "v"}, "⌘W", "<ESC>:wq!<CR>", { silent = true, noremap = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
+
+vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })
+
+vim.keymap.set("n", "<space>cf", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { noremap = true })

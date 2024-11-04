@@ -12,6 +12,9 @@ vim.o.mouse = ''
 vim.o.breakindent = true
 
 -- Save undo history
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
@@ -70,3 +73,7 @@ vim.filetype.add({
 
 -- Auto Sessions
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+vim.opt.scrolloff = 8
+
+vim.opt.updatetime = 50

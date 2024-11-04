@@ -10,4 +10,4 @@ require("auto-session").setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "⌘1", ":SessionSearch<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "⌘p", ":SessionSearch<CR>", {noremap=true})

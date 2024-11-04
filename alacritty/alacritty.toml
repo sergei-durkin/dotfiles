@@ -2,7 +2,8 @@
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/base16_default_dark.toml"
+    "~/.config/alacritty/themes/themes/monokai.toml"
+    #"~/.config/alacritty/themes/themes/base16_default_dark.toml"
     #"~/.config/alacritty/themes/themes/monokai_pro.toml"
     #"~/.config/alacritty/catppuccin-macchiato.toml"
     #"~/.config/alacritty/themes/themes/dark_pastels.toml"
@@ -12,6 +13,7 @@ import = [
 background = "#1F2023"
 
 [window]
+option_as_alt = "Both"
 startup_mode = "Maximized"
 
 [env]
@@ -31,15 +33,14 @@ bindings = [
     { key = "e", mods = "Command", chars = "⌘e"},
     { key = "u", mods = "Command", chars = "⌘u"},
     { key = "u", mods = "Command|Shift", chars = "⌘U"},
-    { key = "1", mods = "Command", chars = "⌘1"},
+    { key = "p", mods = "Command", chars = "⌘p"},
     { key = "h", mods = "Control", chars = "⌃h"},
     { key = "t", mods = "Control", chars = "⌃t"},
-    { key = "h", mods = "Command", chars = "⌘h"},
-    { key = "t", mods = "Command", chars = "⌘t"},
+    { key = "h", mods = "Alt", chars = "⌥h"},
+    { key = "t", mods = "Alt", chars = "⌥t"},
     { key = "n", mods = "Command", chars = "⌘n"},
     { key = "i", mods = "Command", chars = "⌘i"},
     { key = "w", mods = "Command|Shift", chars = "⌘W"},
-    { key = "h", chars = "h"},
     { key = "r", mods = "Command", chars = "⌘r"},
     { key = "r", mods = "Command|Shift", chars = "⌘R"}
 ]

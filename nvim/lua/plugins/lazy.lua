@@ -13,7 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.o.termguicolors = true
 
-require('lazy').setup({
+require("lazy").setup({
+  {
+    "mbbill/undotree",
+  },
   {
     "nvim-treesitter/nvim-treesitter-context",
   },
@@ -88,9 +91,9 @@ require('lazy').setup({
     opts = {
       exclude = {
         filetypes = { 
-          'lspinfo',
-          'help',
-          'dashboard',
+          "lspinfo",
+          "help",
+          "dashboard",
         },
       },
       scope = {
@@ -112,21 +115,21 @@ require('lazy').setup({
     init = function()
       vim.g.VM_default_mappings = 0
       vim.g.VM_maps = {
-        ["Add Cursor Down"] = '⌘j',
-        ["Add Cursor Up"] = '⌘k',
-        ["Find Subword Under"] = '⌘l',
-        ["Find Under"] = '⌘l'
+        ["Add Cursor Down"] = "⌥j",
+        ["Add Cursor Up"] = "⌥k",
+        ["Find Subword Under"] = "⌥l",
+        ["Find Under"] = "⌥l"
       }
     end,
   },
   {
     "RRethy/vim-illuminate",
     config = function()
-      require('illuminate').configure({
+      require("illuminate").configure({
         providers = {
-          'lsp',
-          'treesitter',
-          'regex'
+          "lsp",
+          "treesitter",
+          "regex"
         },
       })
     end
@@ -139,7 +142,7 @@ require('lazy').setup({
   {
     "petertriho/nvim-scrollbar",
     config = function()
-      require('gitsigns').setup()
+      require("gitsigns").setup()
       require("scrollbar.handlers.gitsigns").setup()
     end
   },
@@ -187,18 +190,29 @@ require('lazy').setup({
       },
     },
   },
-  'tpope/vim-fugitive',
-  'lewis6991/gitsigns.nvim',
+  "tpope/vim-fugitive",
+  "lewis6991/gitsigns.nvim",
   {
-    'rmagatti/auto-session',
+    "rmagatti/auto-session",
     lazy = false
   },
   {
-    'smoka7/hop.nvim',
+    "smoka7/hop.nvim",
     version = "*",
     opts = {
-        keys = 'etovxqpdygfblzhckisuran'
+        keys = "etovxqpdygfblzhckisuran"
     }
+  },
+  {
+    "letieu/harpoon-lualine",
+    dependencies = {
+      {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        commit = 'e76cb03',
+      }
+    },
+    event = "BufRead",
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -212,14 +226,29 @@ require('lazy').setup({
             name = "Toml",
           },
           ["go"] = {
-            icon = "",
+            icon = "󰟓",
             color = "#00ADD8",
             name = "Go"
+          },
+          ["go.mod"] = {
+            icon = "󰟓 ",
+            color = "#b1e8fa",
+            name = "GoMod"
+          },
+          ["go.sum"] = {
+            icon = "󰟓 ",
+            color = "#b1e8fa",
+            name = "GoSum"
           },
           ["brief"] = {
             icon = "󱓟",
             color = "#F28131",
             name = "Brief"
+          },
+          ["proto"] = {
+            icon = "󱓟",
+            color = "#F28131",
+            name = "Proto"
           },
         }
       })
@@ -250,22 +279,23 @@ require('lazy').setup({
     },
   },
   {
-    'MeanderingProgrammer/markdown.nvim',
+    "MeanderingProgrammer/markdown.nvim",
     main = "render-markdown",
     opts = {},
-    name = 'render-markdown',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    name = "render-markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
   },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    commit = 'e76cb03',
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
     "mistricky/codesnap.nvim",
     build = "make",
   },
-  'onsails/lspkind.nvim',
+  "onsails/lspkind.nvim",
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -282,13 +312,13 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  'folke/zen-mode.nvim',
-  'tpope/vim-obsession',
-  'ThePrimeagen/git-worktree.nvim',
+  "folke/zen-mode.nvim",
+  "tpope/vim-obsession",
+  "ThePrimeagen/git-worktree.nvim",
   "tpope/vim-surround",
-  'xiyaowong/nvim-transparent',
+  "xiyaowong/nvim-transparent",
   {
-    'rmagatti/goto-preview',
+    "rmagatti/goto-preview",
     event = "BufEnter",
   },
   {
@@ -322,13 +352,13 @@ require('lazy').setup({
         routes = {
           {
             filter = {
-              event = 'msg_show',
+              event = "msg_show",
               any = {
-                { find = '%d+L, %d+B' },
-                { find = '; after #%d+' },
-                { find = '; before #%d+' },
-                { find = '%d fewer lines' },
-                { find = '%d more lines' },
+                { find = "%d+L, %d+B" },
+                { find = "; after #%d+" },
+                { find = "; before #%d+" },
+                { find = "%d fewer lines" },
+                { find = "%d more lines" },
               },
             },
             opts = { skip = true },
@@ -341,59 +371,59 @@ require('lazy').setup({
       "rcarriga/nvim-notify",
     }
   },
-  'ray-x/go.nvim',
-  'ray-x/guihua.lua',
+  "ray-x/go.nvim",
+  "ray-x/guihua.lua",
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function() require("nvim-autopairs").setup {} end
   },
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'j-hui/fidget.nvim',
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "j-hui/fidget.nvim",
     }
   },
   {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
+      "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip"
     },
   },
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
+      pcall(require("nvim-treesitter.install").update { with_sync = true })
     end,
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      "nvim-treesitter/nvim-treesitter-textobjects",
     }
   },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
   },
-  'theHamsta/nvim-dap-virtual-text',
-  'leoluz/nvim-dap-go',
-  'nvim-lualine/lualine.nvim',
+  "theHamsta/nvim-dap-virtual-text",
+  "leoluz/nvim-dap-go",
+  "nvim-lualine/lualine.nvim",
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     event = { "BufRead", "BufNewFile" },
     config = true
   },
-  'tpope/vim-sleuth',
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-  'nvim-telescope/telescope-symbols.nvim',
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
+  "tpope/vim-sleuth",
+  { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+  "nvim-telescope/telescope-symbols.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable "make" == 1 },
   {
     "folke/twilight.nvim",
     ft = "markdown",
   },
-  require('plugins.dashboard.init'),
+  require("plugins.dashboard.init"),
 })
 

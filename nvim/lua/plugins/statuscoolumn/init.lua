@@ -230,7 +230,10 @@ statuscolumn.render = function ()
 
   return table.concat({
     -- render gitsigns
-    git_sign or " ",
+    git_sign or statuscolumn.gap({
+      hl = "StatusColumnNumbers",
+      text = " ",
+    }),
 
     statuscolumn.gap({
       hl = "StatusColumnNumbers",
