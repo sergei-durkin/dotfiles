@@ -5,6 +5,17 @@ require('lualine').setup {
     section_separators = '',
   },
   sections = {
+    lualine_a = {
+      {
+        'filename',
+        path = 4,
+      }
+    },
+    lualine_b = {
+      {
+        "harpoon2",
+      },
+    },
     lualine_x = {
       {
         require("noice").api.statusline.mode.get,
@@ -17,22 +28,6 @@ require('lualine').setup {
         color = { fg = "#ff9e64" },
       },
     },
-    lualine_a = {
-      {
-        'branch',
-      }
-    },
-    lualine_b = {
-      {
-        'filename',
-        path = 4,
-      }
-    },
-    lualine_c = {
-      {
-        'buffers',
-      }
-    }
   }
 }
 

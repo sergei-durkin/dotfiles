@@ -1,9 +1,13 @@
 local harpoon = require("harpoon")
+local extensions = require("harpoon.extensions")
 
 harpoon:setup({})
 
-vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>jj", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- leader + j + number to navigate to a specific harpoon item
+harpoon:extend(extensions.builtins.navigate_with_number());
+vim.keymap.set("n", "<leader>jk", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon window" })
+
+vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
 
 -- basic telescope configuration
 local conf = require("telescope.config").values
@@ -24,4 +28,8 @@ local function toggle_telescope(harpoon_files)
 end
 
 vim.keymap.set("n", "<leader>sj", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-d>", function() harpoon:list():prev() end, { desc = "Navigate to previous harpoon item" })
+vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end, { desc = "Navigate to next harpoon item" })
 
