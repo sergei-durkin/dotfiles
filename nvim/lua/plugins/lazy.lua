@@ -115,10 +115,10 @@ require("lazy").setup({
     init = function()
       vim.g.VM_default_mappings = 0
       vim.g.VM_maps = {
-        ["Add Cursor Down"] = "⌘j",
-        ["Add Cursor Up"] = "⌘k",
-        ["Find Subword Under"] = "⌘l",
-        ["Find Under"] = "⌘l"
+        ["Add Cursor Down"] = "⌥j",
+        ["Add Cursor Up"] = "⌥k",
+        ["Find Subword Under"] = "⌥l",
+        ["Find Under"] = "⌥l"
       }
     end,
   },
