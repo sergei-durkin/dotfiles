@@ -36,8 +36,8 @@ vim.opt.langmap = "dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT"
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })
 vim.keymap.set({"n", "v"}, "⌃k", "20kzz", { noremap = true })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 
 vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
