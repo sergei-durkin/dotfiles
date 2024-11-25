@@ -35,3 +35,4 @@ zsh-autosuggestions
 zsh-history-substring-search
 atuin
 gitmux
+keycastr
