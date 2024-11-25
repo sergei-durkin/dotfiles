@@ -111,6 +111,14 @@ require("lazy").setup({
       end
   },
   {
+    "folke/trouble.nvim",
+    lazy = false,
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  },
+  {
     "mg979/vim-visual-multi",
     init = function()
       vim.g.VM_default_mappings = 0
