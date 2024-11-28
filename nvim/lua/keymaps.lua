@@ -29,6 +29,11 @@ vim.keymap.set("i", "<F2>", "<ESC>:w!<CR>", { silent = true })
 vim.keymap.set({"n","v"}, "`", ":", { noremap = true })
 vim.keymap.set({"n","v"}, "<F2>", ":w!<CR>", { silent = true })
 
+-- Keymaps for kinesis
+vim.keymap.set("i", "<PageDown>", "<ESC>:w!<CR>", { silent = true })
+vim.keymap.set({"n","v"}, "|", ":", { noremap = true })
+vim.keymap.set({"n","v"}, "<PageDown>", ":w!<CR>", { silent = true })
+
 -- Keymaps for dvorak users
 vim.opt.langmap = "dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT"
 
