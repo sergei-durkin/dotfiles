@@ -49,3 +49,5 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true })
 
 vim.keymap.set("n", "<space>cf", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { noremap = true })
+
+vim.keymap.set({"n", "v"}, "<Space>p", "\"_dP", { noremap = true })
