@@ -113,6 +113,14 @@ darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
 
 ---
 
+### Trouble
+  - Keybinding: `<leader>xx`
+  - Preview diagnostics: ![Diagnostics](./img/diagnostics.png)
+  - Keybinding: `<leader>xs`
+  - Preview symbols: ![Diagnostics](./img/symbols.png)
+  - See more [here](./nvim/lua/plugins/trouble.lua)
+
+---
 ### GotoPreview
   - Keybinding: `<leader>gp*` (where `*` is the `d - definition`, `r - reference`, `i - implementation`)
   - Preview: ![GotoPreview](./img/goto_preview.png)
@@ -153,7 +161,7 @@ darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
 
 ### LazyGit
   - Keybinding: `<leader>lg`
-  - Preview: ![LazyGit](./img/git_ui.png)
+  - Preview: ![LazyGit](./img/lazygit.png)
 
 ---
 
@@ -162,7 +170,7 @@ darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
   > _May be I will fix it later._
 
   - Keybinding: `<leader>e`
-  - Preview: ![Neotree](./img/file_tree.png)
+  - Preview: ![Neotree](./img/neotree.png)
 
 ---
 
