@@ -4,7 +4,7 @@ require("auto-session").setup({
   auto_restore = true,
   auto_create = true,
   suppressed_dirs = { '~/', '~/p', '~/Downloads', '/', '~/sandbox', '~/ssh'},
-  allowed_dirs = { '~/p/*', '~/sandbox/*', '~/.config', '~/project/*', '~/dotfiles' },
+  allowed_dirs = { '~/p/*', '~/sandbox/*', '~/.config', '~/project/*', '~/dotfiles', '~/Obsidian' },
   session_lens = {
     load_on_setup = true,
   },
