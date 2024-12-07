@@ -1,0 +1,7 @@
+hyper - b : open -a "Google Chrome"
+hyper - t : open -a "Alacritty"
+hyper - i : open -a "Alacritty"
+hyper - m : open -a "Mattermost"
+hyper - d : open -a ~/Applications/DataGrip.app
+hyper - s : open -a "System Settings"
+hyper - o : open -a "Obsidian"
