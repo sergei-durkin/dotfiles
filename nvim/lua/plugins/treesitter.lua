@@ -87,3 +87,7 @@ require('treesitter-context').setup({
   enable = true,
   max_lines = 2,
 })
+
+-- Enable embedded SQL highlighting
+vim.api.nvim_set_hl(0, "@lsp.type.comment.go", {})
+vim.api.nvim_set_hl(0, "@lsp.type.string.go", {})
