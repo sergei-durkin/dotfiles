@@ -6,7 +6,8 @@
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
 - [Description](#description)
-- Screenshots
+- [Screenshots](#screenshots)
+  - [Trouble](#trouble)
   - [GotoPreview](#gotopreview)
   - [FloaX](#floax)
   - [SessionX](#sessionx)
@@ -84,6 +85,16 @@ ln -sf ~/dotfiles/brew ~/.config/brew
 ln -sf ~/dotfiles/atuin ~/.config/atuin
 ```
 
+##### Create a symbolic link to the `skhd` directory
+```bash
+ln -sf ~/dotfiles/skhd ~/.config/skhd
+```
+
+##### Create a symbolic link to the `karabiner` directory
+```bash
+ln -sf ~/dotfiles/karabiner ~/.config/karabiner
+```
+
 ##### Install TPM
 Run git clone to install TPM and then press `prefix + I` to install plugins
 ```bash
@@ -112,6 +123,8 @@ darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
     - Font `MesloLGS NF` *download from [here](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
 
 ---
+
+## Screenshots
 
 ### Trouble
   - Keybinding: `<leader>xx`
