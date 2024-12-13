@@ -31,7 +31,10 @@ export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
 # PostgreSQL
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
+alias vi="nvim"
+alias vim="nvim"
 export EDITOR=/opt/homebrew/bin/nvim
+export GIT_EDITOR=/opt/homebrew/bin/nvim
 
 # Git
 alias gc="git commit -m"

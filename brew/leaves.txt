@@ -36,3 +36,5 @@ zsh-history-substring-search
 atuin
 gitmux
 keycastr
+git-delta
+koekeishiya/formulae/skhd

@@ -109,6 +109,16 @@ Then run the following command to install the packages
 darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
 ```
 
+#### Git-Delta
+```bash
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
+
+git config --global core.editor $(which vim)
+```
+
 ---
 
 ### Description

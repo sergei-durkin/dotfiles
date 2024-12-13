@@ -1,0 +1,11 @@
+[core]
+  pager = delta --dark --paging=never --24-bit-color=always --features=unobtrusive-line-numbers --syntax-theme='Monokai Extended'
+	editor = /opt/homebrew/bin/nvim
+[delta "unobtrusive-line-numbers"]
+    line-numbers = true
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}┊"
+    line-numbers-left-style = red
+    line-numbers-right-style = green
