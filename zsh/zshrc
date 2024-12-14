@@ -14,6 +14,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export XDG_CONFIG_HOME="$HOME/.config"
 
 FZF_COMPLETION_TRIGGER='**'
 FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
@@ -33,8 +34,9 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 alias vi="nvim"
 alias vim="nvim"
-export EDITOR=/opt/homebrew/bin/nvim
-export GIT_EDITOR=/opt/homebrew/bin/nvim
+export EDITOR="nvim"
+export GIT_EDITOR="nvim"
+export VISUAL="nvim"
 
 # Git
 alias gc="git commit -m"
