@@ -111,12 +111,18 @@ darwin-rebuild switch --flake $(readlink ~/.config/nix-darwin)#mbp
 
 #### Git-Delta
 ```bash
+ln -sf ~/dotfiles/git/delta ~/.config/git/delta
+ln -sf ~/.config/git/delta/delta ~/.gitconfig
+```
+
+#### Git-Config
+```bash
 git config --global core.pager delta
 git config --global interactive.diffFilter 'delta --color-only'
 git config --global delta.navigate true
 git config --global merge.conflictStyle zdiff3
 
-git config --global core.editor $(which vim)
+git config --global core.editor "nvim"
 ```
 
 ---

@@ -1,4 +1,6 @@
+os:
+  editCommand: 'nvim'
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never --24-bit-color=always --features=unobtrusive-line-numbers --syntax-theme='Monokai Extended'
+    pager: delta --dark --paging=never --24-bit-color=never --features=unobtrusive-line-numbers --syntax-theme='Monokai Extended'
