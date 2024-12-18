@@ -15,6 +15,20 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "onsails/lspkind.nvim"
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter"
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
+  {
     "mbbill/undotree",
   },
   {
@@ -75,11 +89,9 @@ require("lazy").setup({
   "kr40/nvim-macros",
   cmd = {"MacroSave", "MacroYank", "MacroSelect", "MacroDelete"},
   opts = {
-  
     json_file_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/macros.json"), -- Location where the macros will be stored
     default_macro_register = "q", -- Use as default register for :MacroYank and :MacroSave and :MacroSelect Raw functions
     json_formatter = "none", -- can be "none" | "jq" | "yq" used to pretty print the json file (jq or yq must be installed!)
-    
   },
   config = function()
     vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>MacroSave<cr>", { noremap = true, silent = true })
@@ -142,7 +154,6 @@ require("lazy").setup({
       })
     end
   },
-  "github/copilot.vim",
   {
     "okuuva/auto-save.nvim",
     lazy = false
@@ -303,7 +314,6 @@ require("lazy").setup({
     "mistricky/codesnap.nvim",
     build = "make",
   },
-  "onsails/lspkind.nvim",
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

@@ -117,7 +117,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = true })
 
-local servers = { 'clangd', 'bashls', 'gopls' }
+local servers = { 'clangd', 'gopls' }
 require('mason-lspconfig').setup {
   ensure_installed = servers,
 }

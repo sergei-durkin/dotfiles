@@ -1,7 +1,24 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#D48B02"})
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text', -- show only symbol annotations
+      maxwidth = {
+        -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        -- can also be a function to dynamically calculate max width such as
+        -- menu = function() return math.floor(0.45 * vim.o.columns) end,
+        menu = 50, -- leading text (labelDetails)
+        abbr = 50, -- actual suggestion item
+      },
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+      symbol_map = { Copilot = "" }
+    })
+  },
   window = {
     documentation = cmp.config.window.bordered({
       border = "single"
@@ -40,9 +57,11 @@ cmp.setup({
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = "neorg" },
+    { name = 'copilot', group_index = 2 },
+    { name = 'nvim_lsp', group_index = 2 },
+    { name = 'luasnip', group_index = 2 },
+    { name = "neorg", group_index = 2 },
+    { name = "buffer", group_index = 2 },
   },
 })
 
