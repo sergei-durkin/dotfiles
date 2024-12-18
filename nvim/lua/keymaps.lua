@@ -35,7 +35,7 @@ vim.keymap.set({"n","v"}, "|", ":", { noremap = true })
 vim.keymap.set({"n","v"}, "<PageDown>", ":w!<CR>", { silent = true })
 
 -- Keymaps for dvorak users
-vim.opt.langmap = "dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT"
+vim.opt.langmap = "tj,dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT"
 
 -- Keymaps for scrolling
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })
