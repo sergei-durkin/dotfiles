@@ -266,6 +266,8 @@ git config --global core.editor "nvim"
 - [nvim-telescope/telescope-symbols.nvim](https://github.com/nvim-telescope/telescope-symbols.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
+- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim)
+- [rest-nvim/rest.nvim](https://github.com/rest-nvim/rest.nvim)
 
 ### Tmux Plugins
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)

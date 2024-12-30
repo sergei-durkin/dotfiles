@@ -38,3 +38,4 @@ gitmux
 keycastr
 git-delta
 koekeishiya/formulae/skhd
+gojq

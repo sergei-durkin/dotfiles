@@ -15,6 +15,13 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "stevearc/oil.nvim",
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
+  {
+    "rest-nvim/rest.nvim",
+  },
+  {
     "onsails/lspkind.nvim"
   },
   {
@@ -86,23 +93,23 @@ require("lazy").setup({
     end,
   },
   {
-  "kr40/nvim-macros",
-  cmd = {"MacroSave", "MacroYank", "MacroSelect", "MacroDelete"},
-  opts = {
-    json_file_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/macros.json"), -- Location where the macros will be stored
-    default_macro_register = "q", -- Use as default register for :MacroYank and :MacroSave and :MacroSelect Raw functions
-    json_formatter = "none", -- can be "none" | "jq" | "yq" used to pretty print the json file (jq or yq must be installed!)
+    "kr40/nvim-macros",
+    cmd = {"MacroSave", "MacroYank", "MacroSelect", "MacroDelete"},
+    opts = {
+      json_file_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/macros.json"), -- Location where the macros will be stored
+      default_macro_register = "q", -- Use as default register for :MacroYank and :MacroSave and :MacroSelect Raw functions
+      json_formatter = "none", -- can be "none" | "jq" | "yq" used to pretty print the json file (jq or yq must be installed!)
+    },
+    config = function()
+      vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>MacroSave<cr>", { noremap = true, silent = true })
+    end
   },
-  config = function()
-    vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>MacroSave<cr>", { noremap = true, silent = true })
-  end
-},
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
       exclude = {
-        filetypes = { 
+        filetypes = {
           "lspinfo",
           "help",
           "dashboard",
@@ -129,18 +136,6 @@ require("lazy").setup({
     config = function()
       require("trouble").setup({})
     end
-  },
-  {
-    "mg979/vim-visual-multi",
-    init = function()
-      vim.g.VM_default_mappings = 0
-      vim.g.VM_maps = {
-        ["Add Cursor Down"] = "⌥j",
-        ["Add Cursor Up"] = "⌥k",
-        ["Find Subword Under"] = "⌥l",
-        ["Find Under"] = "⌥l"
-      }
-    end,
   },
   {
     "RRethy/vim-illuminate",
