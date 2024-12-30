@@ -24,6 +24,12 @@ vim.api.nvim_set_keymap("n", "<leader>fs", ":GoFillStruct<CR>", {silent = true, 
 local runCurrentFile = function()
   local command
 
+  if vim.fn.expand('%'):match(".http$") then
+    command = "Rest run"
+    vim.cmd(command)
+    return
+  end
+
   if vim.fn.expand('%'):match("_test.go$") then
     command = "GoTestFunc -v"
     vim.cmd(command)

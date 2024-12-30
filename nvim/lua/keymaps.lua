@@ -51,3 +51,18 @@ vim.keymap.set("n", "n", "nzzzv", { noremap = true })
 vim.keymap.set("n", "<space>cf", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { noremap = true })
 
 vim.keymap.set({"n", "v"}, "<Space>p", "\"_dP", { noremap = true })
+
+vim.keymap.set({"n"}, "-", "<CMD>lua require('oil').toggle_float(\".\")<CR>", { desc = "Open parent directory" })
+
+-- Keymaps for moving between splits
+vim.keymap.set("n", "⌥h", "<C-W>h", { noremap = true })
+vim.keymap.set("n", "⌥j", "<C-W>j", { noremap = true })
+vim.keymap.set("n", "⌥k", "<C-W>k", { noremap = true })
+vim.keymap.set("n", "⌥l", "<C-W>l", { noremap = true })
+
+-- Keymaps for resizing splits
+vim.keymap.set("n", "⌥H", "<C-W><", { noremap = true })
+vim.keymap.set("n", "⌥J", "<C-W>,", { noremap = true })
+vim.keymap.set("n", "⌥K", "<C-W>.", { noremap = true })
+vim.keymap.set("n", "⌥L", "<C-W>>", { noremap = true })
+

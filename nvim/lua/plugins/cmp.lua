@@ -4,6 +4,9 @@ local lspkind = require('lspkind')
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#D48B02"})
 cmp.setup({
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol_text', -- show only symbol annotations
