@@ -15,6 +15,15 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+  },
+  {
     "stevearc/oil.nvim",
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
   },
