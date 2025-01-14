@@ -15,6 +15,12 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "wurli/visimatch.nvim",
+    opts = {
+      hl_group = "IlluminatedWordText",
+    }
+  },
+  {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
     dependencies = {
