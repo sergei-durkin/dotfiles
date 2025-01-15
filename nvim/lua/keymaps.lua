@@ -36,7 +36,7 @@ vim.keymap.set({"n","v"}, "|", ":", { noremap = true })
 vim.keymap.set({"n","v"}, "<PageDown>", ":w!<CR>", { silent = true })
 
 -- Keymaps for dvorak users
-vim.opt.langmap = "tj,dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT,й\\;,Й\\:,ц\\,Ц\\<,у\\.,У\\>,кp,КP,еy,ЕY,нf,НF,гg,ГG,шc,ШC,щr,ЩR,зn,ЗN,фa,ФA,ыo,ЫO,вe,ВE,аu,АU,пi,ПI,рh,РH,оj,ОJ,лk,ЛK,дl,ДL,жs,ЖS,я\',Я\",чq,ЧQ,сt,СT,мd,МD,иx,ИX,тb,ТB,ьm,ЬM,бw,БW,юv,ЮV,\\.z,\\,Z"
+vim.opt.langmap = "tj,dh,hj,tk,nl,ln,kd,jt,DH,HJ,TK,NL,LN,KD,JT,й\\;,Й\\:,ц\\,Ц\\<,у\\.,У\\>,кp,КP,еy,ЕY,нf,НF,гg,ГG,шc,ШC,щr,ЩR,зn,ЗN,фa,ФA,ыo,ЫO,вe,ВE,аu,АU,пi,ПI,рh,РH,оj,ОJ,лk,ЛK,дl,ДL,жs,ЖS,я\',Я\",чq,ЧQ,сt,СT,мd,МD,иx,ИX,тb,ТB,ьm,ЬM,бw,БW,юv,ЮV"
 
 -- Keymaps for scrolling
 vim.keymap.set({"n", "v"}, "⌃j", "20jzz", { noremap = true })

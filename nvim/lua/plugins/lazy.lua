@@ -15,6 +15,13 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    dir = "~/sandbox/sql-formatter.nvim",
+    url = "sergei-durkin/sql-formatter.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
     "wurli/visimatch.nvim",
     opts = {
       hl_group = "IlluminatedWordText",
