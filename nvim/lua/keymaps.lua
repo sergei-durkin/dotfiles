@@ -12,12 +12,11 @@ vim.api.nvim_set_keymap("n", "⌘,", ":bdelete<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "E", "$", { noremap = false })
 vim.api.nvim_set_keymap("n", "B", "^", { noremap = false })
-vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", { noremap = true })
 
 -- splits
 vim.api.nvim_set_keymap("n", "<C-W>,", ":vertical resize -10<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-W>.", ":vertical resize +10<CR>", { noremap = true })
-vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
+vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR><cmd>noh<CR>")
 
 -- Quicker close split
 vim.keymap.set("n", "<space>qq", ":q<CR>", { silent = true, noremap = true })

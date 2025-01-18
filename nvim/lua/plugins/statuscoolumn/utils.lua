@@ -44,6 +44,7 @@ utils.get_signs = function(buf, lnum)
     { lnum - 1, -1 },
     { details = true, type = "sign" }
   )
+
   for _, extmark in pairs(extmarks) do
     signs[#signs + 1] = {
       name = extmark[4].sign_hl_group or "",
@@ -64,17 +65,18 @@ utils.icon = function(sign)
   if not sign then
     return "%#StatusColumnNumbers# "
   end
+
   local text = vim.fn.strcharpart(sign.text or "", 0, 1)
   if sign.texthl then
     sign.texthl = get_hl(sign.name)
     if vim.v.lnum == vim.fn.line(".") then
       return string.format("%%#StatusColumnNumbers#%%#%s#%%X%s%%*", sign.texthl, text)
-    else
-      return string.format("%%#%s#%s%%*", sign.texthl, text)
     end
-  else
-    return text
+
+    return string.format("%%#%s#%s%%*", sign.texthl, text)
   end
+
+  return text
 end
 
 return utils
