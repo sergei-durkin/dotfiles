@@ -15,6 +15,21 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "echasnovski/mini.ai",
+    version = '*',
+  },
+  {
+    "echasnovski/mini.jump2d",
+    version = '*',
+  },
+  {
+    "echasnovski/mini.operators",
+    version = '*',
+  },
+  { 'echasnovski/mini.surround',
+    version = '*',
+  },
+  {
     dir = "~/sandbox/sql-formatter.nvim",
     url = "sergei-durkin/sql-formatter.nvim",
     dependencies = {
@@ -231,13 +246,6 @@ require("lazy").setup({
   {
     "rmagatti/auto-session",
     lazy = false
-  },
-  {
-    "smoka7/hop.nvim",
-    version = "*",
-    opts = {
-        keys = "etovxqpdygfblzhckisuran"
-    }
   },
   {
     "letieu/harpoon-lualine",

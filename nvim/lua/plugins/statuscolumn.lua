@@ -10,6 +10,7 @@ require('plugins.statuscoolumn.init').setup({
     cursorline = {
       bg = "#2C2D30",
     },
+
     number = {
       normal = "#505258",
       accent = "#9FA0A8",
