@@ -150,6 +150,7 @@ require('lspconfig').gopls.setup {
   capabilities = capabilities,
   settings = {
     gopls = {
+      buildFlags = { "-tags=integration" },
       completeUnimported = true,
       usePlaceholders = true,
       semanticTokens = true,
