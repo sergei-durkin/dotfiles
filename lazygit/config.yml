@@ -1,6 +1,11 @@
 os:
-  editCommand: 'nvim'
+  edit: 'nvim'
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --24-bit-color=always --color-only
+gui:
+  theme:
+    selectedLineBgColor:
+      - "#383838"
+
