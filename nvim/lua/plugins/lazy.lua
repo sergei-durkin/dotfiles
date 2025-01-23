@@ -15,6 +15,9 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "sindrets/diffview.nvim"
+  },
+  {
     "echasnovski/mini.ai",
     version = '*',
   },
