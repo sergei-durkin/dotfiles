@@ -105,3 +105,5 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,bg=black,bold,underline"
+
+[[ -s "/Users/blerka/.gvm/scripts/gvm" ]] && source "/Users/blerka/.gvm/scripts/gvm"

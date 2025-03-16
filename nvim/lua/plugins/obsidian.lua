@@ -4,5 +4,9 @@ require("obsidian").setup({
       name = "Notes",
       path = "~/Obsidian",
     },
+    {
+      name = "Work",
+      path = "~/Documents/Obsidian Vault",
+    },
   },
 })

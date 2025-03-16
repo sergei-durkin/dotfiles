@@ -39,3 +39,7 @@ keycastr
 git-delta
 koekeishiya/formulae/skhd
 gojq
+jesseduffield/lazydocker/lazydocker
+ninja
+cmake
+gettext
