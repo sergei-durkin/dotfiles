@@ -15,7 +15,10 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
-    "sindrets/diffview.nvim"
+    "dyng/ctrlsf.vim",
+  },
+  {
+    "sindrets/diffview.nvim",
   },
   {
     "echasnovski/mini.ai",
@@ -201,34 +204,34 @@ require("lazy").setup({
     end
   },
   {
-  "kevinhwang91/nvim-ufo",
+    "kevinhwang91/nvim-ufo",
     dependencies = {
-    "kevinhwang91/promise-async",
-  },
-  event = "BufReadPost",
-  opts = {
-    open_fold_hl_timeout = 400,
-    close_fold_kinds = { "imports","import", "comment" },
-    preview = {
-      win_config = {
-        border = { "", "─", "", "", "", "─", "", "" },
-        winblend = 0,
-      },
-      mappings = {
-        scrollU = "<C-u>",
-        scrollD = "<C-d>",
-        jumpTop = "[",
-        jumpBot = "]",
+      "kevinhwang91/promise-async",
+    },
+    event = "BufReadPost",
+    opts = {
+      open_fold_hl_timeout = 400,
+      close_fold_kinds = { "imports","import", "comment" },
+      preview = {
+        win_config = {
+          border = { "", "─", "", "", "", "─", "", "" },
+          winblend = 0,
+        },
+        mappings = {
+          scrollU = "<C-u>",
+          scrollD = "<C-d>",
+          jumpTop = "[",
+          jumpBot = "]",
+        },
       },
     },
-  },
-  init = function()
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-    vim.o.foldcolumn = "1"
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
-  end,
+    init = function()
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
   },
   {
     "folke/which-key.nvim",
