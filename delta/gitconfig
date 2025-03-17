@@ -12,3 +12,8 @@
     line-numbers-right-format = "{np:>4}┊"
     line-numbers-left-style = red
     line-numbers-right-style = green
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
