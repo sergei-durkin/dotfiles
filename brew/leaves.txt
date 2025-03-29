@@ -43,3 +43,4 @@ jesseduffield/lazydocker/lazydocker
 ninja
 cmake
 gettext
+scooter

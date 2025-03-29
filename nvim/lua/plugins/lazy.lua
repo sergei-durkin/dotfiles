@@ -15,6 +15,11 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true,
+  },
+  {
     "dyng/ctrlsf.vim",
   },
   {
