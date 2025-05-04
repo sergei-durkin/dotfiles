@@ -11,14 +11,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
-require('go').setup({
-  run_in_floaterm = true,
-  icons = false,
-  floaterm = {
-    position = "bottom",
-    width = 0.3,
-    height = 0.3,
-  },
-})
 
 require("auto-save").setup()
