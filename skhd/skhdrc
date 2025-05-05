@@ -5,3 +5,9 @@ hyper - m : open -a "Mattermost"
 hyper - d : open -a ~/Applications/DataGrip.app
 hyper - s : open -a "System Settings"
 hyper - o : open -a "Obsidian"
+
+hyper - 0x12 : open -a "Google Chrome"
+hyper - 0x13 : open -a "Alacritty"
+hyper - 0x14 : open -a "Mattermost"
+hyper - 0x15 : open -a "Obsidian"
+hyper - 0x17 : open -a ~/Applications/DataGrip.app

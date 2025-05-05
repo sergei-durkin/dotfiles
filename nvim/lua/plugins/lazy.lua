@@ -425,8 +425,22 @@ require("lazy").setup({
       "rcarriga/nvim-notify",
     }
   },
-  "ray-x/go.nvim",
-  "ray-x/guihua.lua",
+  {
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require('go').setup({
+        run_in_floaterm = true,
+        icons = true,
+      })
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
