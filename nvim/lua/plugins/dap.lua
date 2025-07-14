@@ -1,6 +1,21 @@
-require('dapui').setup()
+local dap = require('dap')
+local dapui = require('dapui')
+dapui.setup()
 require('dap-go').setup()
 require('nvim-dap-virtual-text').setup()
+
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 
 local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
@@ -55,11 +70,13 @@ end
 vim.keymap.set({"n", "i", "v"}, "<F3>", function() runCurrentFile() end, {silent = true, noremap=true})
 vim.keymap.set({"n", "i", "v"}, "⌘r", function() runCurrentFile() end, {silent = true, noremap=true})
 
+vim.keymap.set("n", "<leader><leader>d", function() require("dapui").float_element("scopes", {enter = true, position = "top"}) end)
+
 vim.keymap.set("n", "<F4>", ":GoDebug<CR>", {noremap=true})
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-vim.keymap.set('n', '<F6>', function() require('dap').step_over() end)
-vim.keymap.set('n', '<F7>', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F8>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<F5>', function() dap.continue() end)
+vim.keymap.set('n', '<F6>', function() dap.step_over() end)
+vim.keymap.set('n', '<F7>', function() dap.step_into() end)
+vim.keymap.set('n', '<F8>', function() dap.step_out() end)
 vim.keymap.set('n', '<F9>', ":GoDebug -s<CR>", {noremap=true})
 vim.keymap.set('n', '<F10>', ":DapUiToggle<CR>", {noremap=true})
 vim.keymap.set('n', '<ESC>', ":GoTermClose<CR>", {silent = true, noremap=true})
