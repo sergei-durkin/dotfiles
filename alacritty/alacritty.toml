@@ -34,8 +34,10 @@ bindings = [
     { key = "u", mods = "Command", chars = "⌘u"},
     { key = "u", mods = "Command|Shift", chars = "⌘U"},
     { key = "p", mods = "Command", chars = "⌘p"},
+    { key = "d", mods = "Control", chars = "⌃d"},
     { key = "h", mods = "Control", chars = "⌃h"},
     { key = "t", mods = "Control", chars = "⌃t"},
+    { key = "n", mods = "Control", chars = "⌃n"},
     { key = "d", mods = "Alt", chars = "⌥d"},
     { key = "h", mods = "Alt", chars = "⌥h"},
     { key = "t", mods = "Alt", chars = "⌥t"},
@@ -56,5 +58,6 @@ bindings = [
     { key = "i", mods = "Command", chars = "⌘i"},
     { key = "w", mods = "Command|Shift", chars = "⌘W"},
     { key = "r", mods = "Command", chars = "⌘r"},
-    { key = "r", mods = "Command|Shift", chars = "⌘R"}
+    { key = "r", mods = "Command|Shift", chars = "⌘R"},
+    { key = "w", mods = "Command", chars = "⌘,"}
 ]

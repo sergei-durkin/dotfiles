@@ -23,3 +23,5 @@ vim.api.nvim_set_hl(0, "IlluminatedCurWord", { bg = "#4c415c" })
 vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#4c415c" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#4c415c" })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#4c415c" })
+
+vim.deprecate = function() end

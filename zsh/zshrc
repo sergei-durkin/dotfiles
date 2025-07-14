@@ -29,8 +29,11 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
 
+# Python
+export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
+
 # PostgreSQL
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 alias vi="nvim"
 alias vim="nvim"
@@ -106,4 +109,6 @@ bindkey '^[[B' history-substring-search-down
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,bg=black,bold,underline"
 
-[[ -s "/Users/blerka/.gvm/scripts/gvm" ]] && source "/Users/blerka/.gvm/scripts/gvm"
+[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+
+export PATH="$PATH:~/.lmstudio/bin"

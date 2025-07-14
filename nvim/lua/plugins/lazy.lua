@@ -15,6 +15,23 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod', lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = true,
@@ -259,17 +276,6 @@ require("lazy").setup({
     lazy = false
   },
   {
-    "letieu/harpoon-lualine",
-    dependencies = {
-      {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        commit = 'e76cb03',
-      }
-    },
-    event = "BufRead",
-  },
-  {
     "nvim-tree/nvim-web-devicons",
     event = "BufRead",
     config = function()
@@ -339,12 +345,6 @@ require("lazy").setup({
     opts = {},
     name = "render-markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    commit = 'e76cb03',
-    dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
     "mistricky/codesnap.nvim",
@@ -431,11 +431,11 @@ require("lazy").setup({
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
       require('go').setup({
         run_in_floaterm = true,
-        icons = true,
       })
     end,
     event = {"CmdlineEnter"},
@@ -445,6 +445,9 @@ require("lazy").setup({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function() require("nvim-autopairs").setup {} end
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
   },
   {
     "neovim/nvim-lspconfig",
@@ -474,7 +477,11 @@ require("lazy").setup({
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      "nvim-tree/nvim-web-devicons",
+    }
   },
   "theHamsta/nvim-dap-virtual-text",
   "leoluz/nvim-dap-go",
@@ -485,13 +492,22 @@ require("lazy").setup({
     config = true
   },
   "tpope/vim-sleuth",
-  { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
-  "nvim-telescope/telescope-symbols.nvim",
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable "make" == 1 },
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "master",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "nvim-telescope/telescope-symbols.nvim",
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    cond = vim.fn.executable "make" == 1,
+  },
   {
     "folke/twilight.nvim",
     ft = "markdown",
   },
-  require("plugins.dashboard.init"),
 })
 
