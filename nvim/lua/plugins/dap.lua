@@ -19,6 +19,7 @@ end
 
 local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
+local neotest = require('neotest')
 
 vim.api.nvim_set_hl(namespace, 'DapBreakpoint', { fg='#993939', bg='#31353f' })
 vim.api.nvim_set_hl(namespace, 'DapLogPoint', { fg='#61afef', bg='#31353f' })
@@ -46,8 +47,7 @@ local runCurrentFile = function()
   end
 
   if vim.fn.expand('%'):match("_test.go$") then
-    command = "GoTestFunc -v"
-    vim.cmd(command)
+    neotest.run.run()
     return
   end
 

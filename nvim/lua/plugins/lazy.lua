@@ -15,6 +15,46 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      {
+        "fredrikaverpil/neotest-golang",
+        version = "*",
+        dependencies = {
+          "uga-rosa/utf8.nvim", -- Additional dependency required
+        },
+      },
+    },
+    config = function()
+      local neotest_golang_opts = {
+        sanitize_output = true,
+        testify_enabled = true,
+        go_test_args = { "-count=1", "-tags=integration,wireinject" },
+        go_list_args = { "-tags=integration,wireinject" },
+        dap_go_opts = {
+          delve = {
+            build_flags = { "-tags=integration,wireinject" },
+          },
+        },
+      }
+      require("neotest").setup({
+        adapters = {
+          require("neotest-golang")(neotest_golang_opts),
+        },
+      })
+    end,
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+    config = function()
+      require('grug-far').setup()
+    end
+  },
+  {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
       { 'tpope/vim-dadbod', lazy = true },
@@ -436,6 +476,7 @@ require("lazy").setup({
     config = function()
       require('go').setup({
         run_in_floaterm = true,
+        --icons = true,
       })
     end,
     event = {"CmdlineEnter"},
