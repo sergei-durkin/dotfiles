@@ -16,19 +16,6 @@ vim.o.termguicolors = true
 require("lazy").setup({
   {
     "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      {
-        "fredrikaverpil/neotest-golang",
-        version = "*",
-        dependencies = {
-          "uga-rosa/utf8.nvim", -- Additional dependency required
-        },
-      },
-    },
     config = function()
       local neotest_golang_opts = {
         sanitize_output = true,
@@ -47,6 +34,19 @@ require("lazy").setup({
         },
       })
     end,
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      {
+        "fredrikaverpil/neotest-golang",
+        version = "*",
+        dependencies = {
+          "uga-rosa/utf8.nvim",
+        },
+      },
+    },
   },
   {
     'MagicDuck/grug-far.nvim',
@@ -56,10 +56,6 @@ require("lazy").setup({
   },
   {
     'kristijanhusak/vim-dadbod-ui',
-    dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-    },
     cmd = {
       'DBUI',
       'DBUIToggle',
@@ -67,17 +63,12 @@ require("lazy").setup({
       'DBUIFindBuffer',
     },
     init = function()
-      -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
     end,
-  },
-  {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    config = true,
-  },
-  {
-    "dyng/ctrlsf.vim",
+    dependencies = {
+      { 'tpope/vim-dadbod', lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
   },
   {
     "sindrets/diffview.nvim",
@@ -94,7 +85,8 @@ require("lazy").setup({
     "echasnovski/mini.operators",
     version = '*',
   },
-  { 'echasnovski/mini.surround',
+  {
+    'echasnovski/mini.surround',
     version = '*',
   },
   {
@@ -113,15 +105,17 @@ require("lazy").setup({
   {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
+    opts = {},
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
     },
-    opts = {},
   },
   {
     "stevearc/oil.nvim",
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = {
+      { "echasnovski/mini.icons", opts = {} }
+    },
   },
   {
     "rest-nvim/rest.nvim",
@@ -147,23 +141,6 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter-context",
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("refactoring").setup({
-        prompt_func_return_type = {
-            go = true,
-        },
-        prompt_func_param_type = {
-            go = true,
-        },
-      })
-    end,
-  },
-  {
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
@@ -173,9 +150,6 @@ require("lazy").setup({
   {
     dir = "~/sandbox/darcula-dark.nvim",
     url = "sergei-durkin/darcula-dark.nvim",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-    },
     dev = true,
     config = function()
       require("darcula").setup({
@@ -196,18 +170,9 @@ require("lazy").setup({
         },
       })
     end,
-  },
-  {
-    "kr40/nvim-macros",
-    cmd = {"MacroSave", "MacroYank", "MacroSelect", "MacroDelete"},
-    opts = {
-      json_file_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/macros.json"), -- Location where the macros will be stored
-      default_macro_register = "q", -- Use as default register for :MacroYank and :MacroSave and :MacroSelect Raw functions
-      json_formatter = "none", -- can be "none" | "jq" | "yq" used to pretty print the json file (jq or yq must be installed!)
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>MacroSave<cr>", { noremap = true, silent = true })
-    end
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -224,15 +189,6 @@ require("lazy").setup({
         enabled = false,
       }
     },
-  },
-  {
-     "m4xshen/hardtime.nvim",
-     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-      config = function()
-          require("hardtime").setup({
-            enabled = true,
-          })
-      end
   },
   {
     "folke/trouble.nvim",
@@ -273,7 +229,6 @@ require("lazy").setup({
     event = "BufReadPost",
     opts = {
       open_fold_hl_timeout = 400,
-      close_fold_kinds = { "imports","import", "comment" },
       preview = {
         win_config = {
           border = { "", "─", "", "", "", "─", "", "" },
@@ -384,11 +339,10 @@ require("lazy").setup({
     main = "render-markdown",
     opts = {},
     name = "render-markdown",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "mistricky/codesnap.nvim",
-    build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -409,8 +363,6 @@ require("lazy").setup({
   "folke/zen-mode.nvim",
   "tpope/vim-obsession",
   "ThePrimeagen/git-worktree.nvim",
-  "tpope/vim-surround",
-  "xiyaowong/nvim-transparent",
   {
     "rmagatti/goto-preview",
     event = "BufEnter",
@@ -418,31 +370,33 @@ require("lazy").setup({
   {
     "folke/trouble.nvim",
     lazy = false,
-    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("trouble").setup({})
-    end
+      require("trouble").setup()
+    end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
   {
     "folke/todo-comments.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
     config = function()
-      require("todo-comments").setup({})
-    end
-  },
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup({
-        background_colour = "#000000",
-        enabled = false,
-      })
-    end
+      require("todo-comments").setup()
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
   },
   {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
         routes = {
           {
             filter = {
@@ -458,45 +412,47 @@ require("lazy").setup({
             opts = { skip = true },
           }
         },
+        presets = {
+          command_palette = true,
+        },
       })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     }
   },
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    config = function()
+      require('go').setup({
+        run_in_floaterm = true,
+      })
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    dependencies = {
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require('go').setup({
-        run_in_floaterm = true,
-        --icons = true,
-      })
-    end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
   },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup() end
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "j-hui/fidget.nvim",
-    }
+      "mason-org/mason-lspconfig.nvim",
+      opts = {},
+      dependencies = {
+        {
+          "mason-org/mason.nvim",
+          opts = {}
+        },
+        "neovim/nvim-lspconfig",
+        "j-hui/fidget.nvim",
+      },
   },
   {
     "hrsh7th/nvim-cmp",

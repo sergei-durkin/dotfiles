@@ -23,7 +23,12 @@ end
 
 utils.get_signs = function(buf, lnum)
   local signs = {}
-  local placed_signs = vim.fn.sign_getplaced(buf, { group = "*", lnum = lnum })[1].signs
+  local placed = vim.fn.sign_getplaced(buf, { group = "*", lnum = lnum })[1]
+  if not placed then
+    return signs
+  end
+
+  local placed_signs = placed.signs
   for _, sign in ipairs(placed_signs) do
     local defined_sign = vim.fn.sign_getdefined(sign.name)[1]
     if defined_sign then

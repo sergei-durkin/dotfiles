@@ -112,3 +112,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,bg=black,bold,underline"
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
 
 export PATH="$PATH:~/.lmstudio/bin"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"

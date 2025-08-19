@@ -49,7 +49,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- Setup mason so it can manage external tooling
-require('mason').setup()
+require('mason').setup({})
 
 local utils = require("lspconfig.util")
 
@@ -82,7 +82,7 @@ local config = {
   },
 
   diagnostic = {
-    virtual_text = { 
+    virtual_text = {
       spacing = 4,
       prefix = " ",
       severity = { min = vim.diagnostic.severity.HINT },
@@ -120,10 +120,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = true })
 
-local servers = { 'clangd', 'gopls', 'lua_ls' }
-require('mason-lspconfig').setup {
-  ensure_installed = servers,
-}
+local servers = { 'rust_analyzer', 'clangd', 'gopls', 'lua_ls' }
+
+require('mason-lspconfig').setup()
+
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -147,6 +147,26 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+require('lspconfig').rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = "clippy";
+            },
+            diagnostics = {
+                enable = true;
+            },
+            capabilities = {
+              textDocument = {
+                semanticTokens = {
+                  multilineTokenSupport = true,
+                }
+              }
+            }
+        }
+    }
+}
 
 require('lspconfig').gopls.setup {
   on_attach = on_attach,
