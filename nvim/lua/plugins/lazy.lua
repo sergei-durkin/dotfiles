@@ -10,10 +10,15 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 vim.o.termguicolors = true
 
 require("lazy").setup({
+  {
+    'vieitesss/miniharp.nvim',
+    config = true,
+  },
   {
     "nvim-neotest/neotest",
     config = function()
