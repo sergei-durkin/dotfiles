@@ -11,11 +11,6 @@ require('lualine').setup {
         path = 4,
       }
     },
-    lualine_b = {
-      {
-        "harpoon2",
-      },
-    },
     lualine_x = {
       {
         require("noice").api.statusline.mode.get,

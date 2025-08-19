@@ -1,12 +1,9 @@
 require("telescope").load_extension("lazygit")
-require("telescope").load_extension("refactoring")
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 local open_with_trouble = require("trouble.sources.telescope").open
 local add_to_trouble = require("trouble.sources.telescope").add
-
-vim.keymap.set({"n", "x"}, "<leader>rr", function() require("telescope").extensions.refactoring.refactors() end)
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -23,7 +20,6 @@ require("telescope").setup {
       i = {
         ["⌃t"] = open_with_trouble,
         ["<C-u>"] = false,
-        ["<C-d>"] = false,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-d>"] = actions.move_selection_previous,

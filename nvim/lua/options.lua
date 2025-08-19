@@ -30,6 +30,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 --vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd.colorscheme "darcula-dark"
+-- vim.cmd.colorscheme "monochrome"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'
