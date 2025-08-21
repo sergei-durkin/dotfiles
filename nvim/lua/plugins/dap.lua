@@ -33,7 +33,6 @@ vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapS
 
 vim.api.nvim_set_keymap("n", "<leader>bp", ":DapToggleBreakpoint<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", {noremap=true})
 
 vim.api.nvim_set_keymap("n", "<leader>fs", ":GoFillStruct<CR>", {silent = true, noremap=true})
 
