@@ -31,7 +31,7 @@
   "mini.jump2d": { "branch": "main", "commit": "c90f7f8cebf3282d0f0b228015fceefb841375c6" },
   "mini.operators": { "branch": "main", "commit": "2df4df029be367adfc781a8a1b5e8067d2d979df" },
   "mini.surround": { "branch": "main", "commit": "5aab42fcdcf31fa010f012771eda5631c077840a" },
-  "miniharp.nvim": { "branch": "main", "commit": "c6d3e33beda36a0f84206ef6dcb2324495bce710" },
+  "miniharp.nvim": { "branch": "main", "commit": "ff5b3c7fa0ca2df6739e5e7959544eaf770400ea" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "cea666ef965884414b1b71f6b39a537f9238bdb2" },
   "neotest": { "branch": "master", "commit": "61d1951131e6770c815243d84a27ccd0436ec61c" },
   "neotest-golang": { "branch": "main", "commit": "43a49bb3101551f67bf7945dab28be0568287e2a" },
