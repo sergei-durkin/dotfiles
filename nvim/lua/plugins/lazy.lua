@@ -25,11 +25,11 @@ require("lazy").setup({
       local neotest_golang_opts = {
         sanitize_output = true,
         testify_enabled = true,
-        go_test_args = { "-count=1", "-tags=integration,wireinject" },
-        go_list_args = { "-tags=integration,wireinject" },
+        go_test_args = { "-count=1", "-tags=armtracer,integration,wireinject" },
+        go_list_args = { "-tags=armtracer,integration,wireinject" },
         dap_go_opts = {
           delve = {
-            build_flags = { "-tags=integration,wireinject" },
+            build_flags = { "-tags=armtracer,integration,wireinject" },
           },
         },
       }

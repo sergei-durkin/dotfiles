@@ -16,7 +16,6 @@
           pkgs.silver-searcher
           pkgs.gdu
           pkgs.mkalias
-          pkgs.alacritty
           pkgs.tmux
           pkgs.starship
           pkgs.zoxide

@@ -5,8 +5,8 @@ vim.api.nvim_set_keymap("i", "ва", "<Esc>", { noremap = false })
 vim.api.nvim_set_keymap("n", "TW", ":Twilight<enter>", { noremap = false })
 
 -- buffers
-vim.api.nvim_set_keymap("n", "⌃⌫", ":bdelete<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "⌘,", ":bdelete<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "⌃⌫", ":bdelete!<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "⌘,", ":bdelete!<enter>", { noremap = false })
 
 -- files
 vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
