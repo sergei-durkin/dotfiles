@@ -4,6 +4,7 @@ local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 local open_with_trouble = require("trouble.sources.telescope").open
 local add_to_trouble = require("trouble.sources.telescope").add
+local fb_actions = require("telescope").extensions.file_browser.actions
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -23,14 +24,35 @@ require("telescope").setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-d>"] = actions.move_selection_previous,
-        ["<CR>"] = actions.select_default + actions.center,
+        -- ["<CR>"] = actions.select_default + actions.center,
       },
     },
   },
+  extensions = {
+    file_browser = {
+      mappings = {
+        ["i"] = {
+          ["<C-h>"] = fb_actions.goto_home_dir,
+        },
+      },
+      theme = "dropdown",
+      path = "%:p:h",
+      display_stat = false,
+      grouped = true,
+      hidden = true,
+      hide_parent_dir = true,
+      hijack_netrw = true,
+      prompt_path = true,
+      use_fd = true,
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
+
+-- Enable telescope file browser, if installed
+pcall(require("telescope").load_extension, "file_browser")
 
 -- Enable telescope rest, if installed
 pcall(require("telescope").load_extension, "rest")

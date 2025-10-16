@@ -1,9 +1,6 @@
 vim.api.nvim_set_keymap("i", "eu", "<Esc>", { noremap = false })
 vim.api.nvim_set_keymap("i", "ва", "<Esc>", { noremap = false })
 
--- twilight
-vim.api.nvim_set_keymap("n", "TW", ":Twilight<enter>", { noremap = false })
-
 -- buffers
 vim.api.nvim_set_keymap("n", "⌃⌫", ":bdelete!<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "⌘,", ":bdelete!<enter>", { noremap = false })
@@ -76,3 +73,4 @@ vim.cmd('unmap gra')
 vim.cmd('unmap gri')
 vim.cmd('unmap grn')
 vim.cmd('unmap grr')
+vim.cmd('unmap grt')
