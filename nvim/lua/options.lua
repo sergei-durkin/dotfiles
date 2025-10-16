@@ -28,9 +28,12 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 --vim.cmd [[colorscheme onedark]]
 vim.o.termguicolors = true
---vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd.colorscheme "darcula-dark"
+-- vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "darcula-dark"
 -- vim.cmd.colorscheme "monochrome"
+-- vim.cmd.colorscheme "zenesque"
+-- vim.cmd.colorscheme "default"
+vim.cmd.colorscheme "lackluster-dark"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'

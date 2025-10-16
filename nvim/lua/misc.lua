@@ -18,10 +18,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
   end
 })
 
-vim.api.nvim_set_hl(0, "IlluminatedWord", { bg = "#4c415c" })
-vim.api.nvim_set_hl(0, "IlluminatedCurWord", { bg = "#4c415c" })
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#4c415c" })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#4c415c" })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#4c415c" })
+-- local illuminate_color = "#4c415c"
+local illuminate_color = "#323232"
+
+vim.api.nvim_set_hl(0, "IlluminatedWord", { bg = illuminate_color })
+vim.api.nvim_set_hl(0, "IlluminatedCurWord", { bg = illuminate_color })
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = illuminate_color })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = illuminate_color })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = illuminate_color })
 
 vim.deprecate = function() end

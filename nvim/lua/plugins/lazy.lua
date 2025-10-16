@@ -16,6 +16,9 @@ vim.o.termguicolors = true
 
 require("lazy").setup({
   {
+    "slugbyte/lackluster.nvim",
+  },
+  {
     'vieitesss/miniharp.nvim',
     config = true,
   },
@@ -152,33 +155,33 @@ require("lazy").setup({
       require("colorizer").setup()
     end,
   },
-  {
-    dir = "~/sandbox/darcula-dark.nvim",
-    url = "sergei-durkin/darcula-dark.nvim",
-    dev = true,
-    config = function()
-      require("darcula").setup({
-        override = function(c)
-          return {
-            dark = "#1F2023",
-            background = "#2C2D30"
-          }
-        end,
-        opt = {
-          integrations = {
-            telescope = false,
-            lualine = true,
-            lsp_semantics_token = true,
-            nvim_cmp = true,
-            dap_nvim = true,
-          },
-        },
-      })
-    end,
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-    },
-  },
+  -- {
+  --   dir = "~/sandbox/darcula-dark.nvim",
+  --   url = "sergei-durkin/darcula-dark.nvim",
+  --   dev = true,
+  --   config = function()
+  --     require("darcula").setup({
+  --       override = function(c)
+  --         return {
+  --           dark = "#1F2023",
+  --           background = "#2C2D30"
+  --         }
+  --       end,
+  --       opt = {
+  --         integrations = {
+  --           telescope = false,
+  --           lualine = true,
+  --           lsp_semantics_token = true,
+  --           nvim_cmp = true,
+  --           dap_nvim = true,
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   dependencies = {
+  --       "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -325,6 +328,21 @@ require("lazy").setup({
     },
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        enabled = true,
+      },
+      {
+        "nvim-telescope/telescope-file-browser.nvim",
+        enabled = true,
+      },
+    },
+  },
+  {
     "kdheepak/lazygit.nvim",
     lazy = false,
     cmd = {
@@ -392,41 +410,6 @@ require("lazy").setup({
     },
   },
   {
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-        routes = {
-          {
-            filter = {
-              event = "msg_show",
-              any = {
-                { find = "%d+L, %d+B" },
-                { find = "; after #%d+" },
-                { find = "; before #%d+" },
-                { find = "%d fewer lines" },
-                { find = "%d more lines" },
-              },
-            },
-            opts = { skip = true },
-          }
-        },
-        presets = {
-          command_palette = true,
-        },
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    }
-  },
-  {
     "ray-x/go.nvim",
     config = function()
       require('go').setup({
@@ -441,11 +424,6 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function() require("nvim-autopairs").setup() end
   },
   {
       "mason-org/mason-lspconfig.nvim",
@@ -506,10 +484,6 @@ require("lazy").setup({
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
     cond = vim.fn.executable "make" == 1,
-  },
-  {
-    "folke/twilight.nvim",
-    ft = "markdown",
   },
 })
 

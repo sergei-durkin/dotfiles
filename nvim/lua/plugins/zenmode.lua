@@ -1,5 +1,3 @@
-require("twilight").setup({})
-
 require("zen-mode").setup({
   window = {
     backdrop = 0.95,
@@ -18,7 +16,6 @@ require("zen-mode").setup({
       showcmd = false,
       laststatus = 0,
     },
-    twilight = { enabled = false },
     gitsigns = { enabled = false },
     tmux = { enabled = true },
     wezterm = {
