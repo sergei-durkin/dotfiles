@@ -155,6 +155,21 @@ require("lazy").setup({
       require("colorizer").setup()
     end,
   },
+  {
+    dir = "~/sandbox/gobjdump.nvim",
+    url = "sergei-durkin/gobjdump.nvim",
+    dev = true,
+    config = function()
+      require("gobjdump").setup({
+        build = {
+          args = {
+            "-tags=armtracer",
+            "-gcflags=\"-N -l\"",
+          },
+        },
+      })
+    end,
+  },
   -- {
   --   dir = "~/sandbox/darcula-dark.nvim",
   --   url = "sergei-durkin/darcula-dark.nvim",

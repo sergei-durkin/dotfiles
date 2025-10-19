@@ -1,3 +1,6 @@
+---@diagnostic disable-next-line: undefined-global
+_G.vim = vim
+
 require('keymaps')
 require('plugins.lazy')
 require('plugins.misc')
