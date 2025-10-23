@@ -19,7 +19,23 @@ end
 
 local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
-local neotest = require('neotest')
+local neotest = require("neotest")
+neotest.setup({
+  adapters = {
+    require("neotest-golang")({
+      runner = "gotestsum",
+      sanitize_output = true,
+      testify_enabled = true,
+      go_test_args = { "-count=1", "-tags=armtracer,integration,wireinject" },
+      go_list_args = { "-tags=armtracer,integration,wireinject" },
+      dap_go_opts = {
+        delve = {
+          build_flags = { "-tags=armtracer,integration,wireinject" },
+        },
+      },
+    }),
+  },
+})
 
 vim.api.nvim_set_hl(namespace, 'DapBreakpoint', { fg='#993939', bg='#31353f' })
 vim.api.nvim_set_hl(namespace, 'DapLogPoint', { fg='#61afef', bg='#31353f' })

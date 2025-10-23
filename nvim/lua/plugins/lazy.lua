@@ -24,24 +24,7 @@ require("lazy").setup({
   },
   {
     "nvim-neotest/neotest",
-    config = function()
-      local neotest_golang_opts = {
-        sanitize_output = true,
-        testify_enabled = true,
-        go_test_args = { "-count=1", "-tags=armtracer,integration,wireinject" },
-        go_list_args = { "-tags=armtracer,integration,wireinject" },
-        dap_go_opts = {
-          delve = {
-            build_flags = { "-tags=armtracer,integration,wireinject" },
-          },
-        },
-      }
-      require("neotest").setup({
-        adapters = {
-          require("neotest-golang")(neotest_golang_opts),
-        },
-      })
-    end,
+
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
@@ -156,9 +139,9 @@ require("lazy").setup({
     end,
   },
   {
-    dir = "~/sandbox/gobjdump.nvim",
-    url = "sergei-durkin/gobjdump.nvim",
-    dev = true,
+    -- dir = "~/sandbox/gobjdump.nvim",
+    -- dev = false,
+    "sergei-durkin/gobjdump.nvim",
     config = function()
       require("gobjdump").setup({
         build = {
