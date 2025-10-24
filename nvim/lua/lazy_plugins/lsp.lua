@@ -123,14 +123,6 @@ return {
                 lineFoldingOnly = true,
             }
 
-            local servers = { "clangd", "gopls", "lua_ls" }
-            for _, lsp in ipairs(servers) do
-                vim.lsp.config(lsp, {
-                    on_attach = on_attach,
-                    capabilities = capabilities,
-                })
-            end
-
             vim.lsp.config("gopls", {
                 on_attach = on_attach,
                 capabilities = capabilities,
