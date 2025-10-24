@@ -6,7 +6,7 @@ vim.wo.number = true
 vim.o.relativenumber = true
 
 -- Disable mouse mode
-vim.o.mouse = ''
+vim.o.mouse = ""
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -14,7 +14,7 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
@@ -23,41 +23,31 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
-
--- Set colorscheme
---vim.cmd [[colorscheme onedark]]
-vim.o.termguicolors = true
--- vim.cmd.colorscheme "catppuccin-macchiato"
--- vim.cmd.colorscheme "darcula-dark"
--- vim.cmd.colorscheme "monochrome"
--- vim.cmd.colorscheme "zenesque"
--- vim.cmd.colorscheme "default"
-vim.cmd.colorscheme "lackluster-dark"
+vim.wo.signcolumn = "yes"
 
 --vim.cmd()
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- Concealer for Neorg
-vim.o.conceallevel=2
+vim.o.conceallevel = 2
 
 -- [[ Basic Keymaps ]]
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.opt.listchars = {
-  nbsp = ' ',
-  precedes = '‹',
-  extends = '›',
-  trail = '·',
-  tab = ' ⎯ ',
-  space = '·',
-  multispace = '·',
-  lead = '·',
-  leadmultispace = '·',
+    nbsp = " ",
+    precedes = "‹",
+    extends = "›",
+    trail = "·",
+    tab = " ⎯ ",
+    space = "·",
+    multispace = "·",
+    lead = "·",
+    leadmultispace = "·",
 }
 vim.opt.list = true
 
@@ -70,13 +60,13 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 
 vim.filetype.add({
-  pattern = {
-    ['.*.brief'] = 'brief',
-  },
+    pattern = {
+        [".*.brief"] = "brief",
+    },
 })
 
 -- Auto Sessions
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.scrolloff = 8
 
