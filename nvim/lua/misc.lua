@@ -1,21 +1,21 @@
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = "*",
 })
 
 vim.api.nvim_create_autocmd("VimLeavePre", {
-  pattern = "*",
-  callback = function()
-    if vim.g.savesession then
-      vim.api.nvim_command("mks!")
-    end
-  end
+    pattern = "*",
+    callback = function()
+        if vim.g.savesession then
+            vim.api.nvim_command("mks!")
+        end
+    end,
 })
 
 -- local illuminate_color = "#4c415c"
