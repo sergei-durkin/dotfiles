@@ -1,8 +1,8 @@
 return {
     {
-        dir = "~/sandbox/gobjdump.nvim",
-        url = "sergei-durkin/gobjdump.nvim",
-        dev = true,
+        -- dir = "~/sandbox/gobjdump.nvim",
+        "sergei-durkin/gobjdump.nvim",
+
         config = function()
             require("gobjdump").setup({
                 build = {
