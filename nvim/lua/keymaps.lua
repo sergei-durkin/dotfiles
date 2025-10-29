@@ -59,6 +59,7 @@ vim.keymap.set("n", "<space>cf", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left>
 vim.keymap.set({ "n", "v" }, "<Space>p", '"_dP', { noremap = true })
 
 vim.keymap.set({ "n" }, "-", "<CMD>lua require('oil').toggle_float(\".\")<CR>", { desc = "Open parent directory" })
+vim.keymap.set({ "n" }, "<space>stf", "TmuxCapture", { desc = "Open tmux files" })
 
 -- Keymaps for moving between splits
 vim.keymap.set("n", "⌥h", "<C-W>h", { noremap = true })
