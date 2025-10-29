@@ -16,7 +16,7 @@ local runCurrentFile = function()
 
     if vim.fn.expand("%"):match("main.go$") then
         if vim.fn.search("func main") then
-            command = string.format("GoRun %s -v", vim.fn.expand("%"))
+            command = string.format("GoRun %s", vim.fn.expand("%"))
             vim.cmd(command)
             return
         end
