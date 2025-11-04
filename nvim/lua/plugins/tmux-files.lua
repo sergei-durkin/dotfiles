@@ -2,13 +2,15 @@ local M = {}
 
 local absolute_path_pattern = "^/"
 local is_go_file_pattern = "%.go"
+local is_log_file_pattern = "%.log"
 
-M.capture = function()
-    local handle = vim.fn.execute("!bash ~/.config/nvim/lua/plugins/capture.sh .go")
+M.capture = function(args)
+    local pattern = args.fargs[1] or "\\.\\(go\\|log\\)"
+    local handle = vim.fn.execute("!bash ~/.config/nvim/lua/plugins/capture.sh '" .. pattern .. "'")
     local lines = vim.split(handle, "\n")
 
     vim.fn.setqflist(vim.tbl_map(function(line)
-        if string.match(line, is_go_file_pattern) == nil then
+        if string.match(line, is_go_file_pattern) == nil and string.match(line, is_log_file_pattern) == nil then
             return nil
         end
 
@@ -38,7 +40,7 @@ M.capture = function()
 end
 
 M.setup = function()
-    vim.api.nvim_create_user_command("TmuxCapture", M.capture, {})
+    vim.api.nvim_create_user_command("TmuxCapture", M.capture, { nargs = '?' })
 end
 
 return M
