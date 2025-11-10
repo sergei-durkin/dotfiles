@@ -9,7 +9,7 @@ return {
             -- vim.cmd.colorscheme("monochrome")
             -- vim.cmd.colorscheme("zenesque")
             -- vim.cmd.colorscheme("default")
-            vim.cmd.colorscheme("lackluster-dark")
+            -- vim.cmd.colorscheme("lackluster-dark")
         end,
     },
     {
