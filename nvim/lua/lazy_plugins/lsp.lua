@@ -12,6 +12,7 @@ return {
             },
             "neovim/nvim-lspconfig",
             "j-hui/fidget.nvim",
+            "ibhagwan/fzf-lua",
         },
 
         config = function()
@@ -25,8 +26,6 @@ return {
             vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
             vim.keymap.set("n", "<leader>ca", ":GoCodeAction<CR>", { noremap = true, silent = true })
 
-            local builtin = require("telescope.builtin")
-
             -- LSP settings.
             local on_attach = function(_, bufnr)
                 local nmap = function(keys, func, desc)
@@ -38,13 +37,12 @@ return {
                 end
 
                 nmap("⌘i", vim.lsp.buf.rename, "[R]e[n]ame")
-                -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
-                nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
-                nmap("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
+                nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+                nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
                 nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-                nmap("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
-                nmap("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+                nmap("<leader>ds", vim.lsp.buf.document_symbol, "[D]ocument [S]ymbols")
+                nmap("<leader>ws", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
 
                 -- See `:help K` for why this keymap
                 nmap("K", vim.lsp.buf.hover, "Hover Documentation")

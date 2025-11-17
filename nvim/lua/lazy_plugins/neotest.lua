@@ -21,6 +21,7 @@ return {
             neotest.setup({
                 adapters = {
                     require("neotest-golang")({
+                        warn_test_name_dupes = false,
                         runner = "gotestsum",
                         sanitize_output = true,
                         testify_enabled = true,
