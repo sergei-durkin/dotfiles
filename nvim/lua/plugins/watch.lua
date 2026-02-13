@@ -2,6 +2,8 @@ local M = {}
 
 M.bufnrs = {}
 M.cur = 1
+M.jobs = {}
+M.timeout = 5
 
 M.watch = function(e)
     local args = {}
@@ -30,6 +32,11 @@ M.watch = function(e)
         M.close(tonumber(args[2]))
         return
     end
+
+    if cmd == "timeout" then
+        M.timeout = tonumber(args[2])
+        return
+    end
 end
 
 M.close = function(bufnr)
@@ -54,7 +61,11 @@ M.new = function()
         split = "right",
     }
 
-    vim.api.nvim_open_win(bufnr, true, opts)
+    local win = vim.api.nvim_open_win(bufnr, true, opts)
+
+    vim.api.nvim_set_option_value("wrap", true, { win = win })
+    vim.api.nvim_set_option_value("linebreak", true, { win = win })
+    vim.api.nvim_set_option_value("breakindent", true, { win = win })
 
     M.keymap(bufnr)
 end
@@ -92,21 +103,51 @@ end
 
 M.run = function(bufnr)
     local cmd = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
+    local job_id = M.jobs[bufnr]
+
+    if job_id ~= nil then
+        if vim.fn.jobwait({ job_id }, 0)[1] == -1 then
+            vim.fn.jobstop(job_id)
+            print("Job " .. job_id .. " stopped.")
+        end
+
+        M.jobs[bufnr] = nil
+    end
 
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { cmd })
-    vim.fn.jobstart(cmd, {
+    job_id = vim.fn.jobstart(cmd, {
         stdout_buffered = false,
         on_stdout = function(_, data)
             vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
         end,
+        on_stderr = function(_, data)
+            vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+        end,
         on_exit = function()
-            for _, win in ipairs(vim.api.nvim_list_wins()) do
-                if vim.api.nvim_win_get_buf(win) == bufnr then
-                    vim.api.nvim_win_set_cursor(win, { vim.api.nvim_buf_line_count(bufnr), 0 })
-                end
+            local cnt = vim.api.nvim_buf_line_count(bufnr)
+            for _, win in ipairs(vim.fn.win_findbuf(bufnr)) do
+                vim.api.nvim_win_set_cursor(win, { math.max(0, cnt - 1), 0 })
             end
+
+            M.jobs[bufnr] = nil
         end,
     })
+    M.jobs[bufnr] = job_id
+
+    if M.timeout > 0 then
+        vim.defer_fn(function()
+            if vim.fn.jobwait({ job_id }, 0)[1] == -1 then
+                vim.fn.jobstop(job_id)
+                vim.api.nvim_buf_set_lines(
+                    bufnr,
+                    -1,
+                    -1,
+                    false,
+                    { "Job " .. job_id .. " stopped after " .. M.timeout .. " seconds." }
+                )
+            end
+        end, M.timeout * 1000)
+    end
 end
 
 M.setup = function()
