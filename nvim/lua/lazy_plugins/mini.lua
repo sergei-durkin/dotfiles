@@ -1,20 +1,20 @@
 return {
     {
-        "mini.ai",
+        "nvim-mini/mini.ai",
 
         config = function()
             require("mini.ai").setup()
         end,
     },
     {
-        "mini.surround",
+        "nvim-mini/mini.surround",
 
         config = function()
             require("mini.surround").setup()
         end,
     },
     {
-        "mini.jump2d",
+        "nvim-mini/mini.jump2d",
 
         config = function()
             require("mini.jump2d").setup({
@@ -33,7 +33,7 @@ return {
         end,
     },
     {
-        "mini.operators",
+        "nvim-mini/mini.operators",
 
         config = function()
             require("mini.operators").setup({
