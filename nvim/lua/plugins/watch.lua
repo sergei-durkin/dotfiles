@@ -115,6 +115,7 @@ M.run = function(bufnr)
     end
 
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { cmd })
+    local start_time = vim.loop.hrtime()
     job_id = vim.fn.jobstart(cmd, {
         stdout_buffered = false,
         on_stdout = function(_, data)
@@ -123,7 +124,14 @@ M.run = function(bufnr)
         on_stderr = function(_, data)
             vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
         end,
-        on_exit = function()
+        on_exit = function(_, code)
+            local elapsed_ns = vim.loop.hrtime() - start_time
+            local elapsed_ms = elapsed_ns / 1e6
+
+            local msg = string.format("[exit code: %d | time: %.2f ms]", code, elapsed_ms)
+
+            vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, { msg })
+
             local cnt = vim.api.nvim_buf_line_count(bufnr)
             for _, win in ipairs(vim.fn.win_findbuf(bufnr)) do
                 vim.api.nvim_win_set_cursor(win, { math.max(0, cnt - 1), 0 })
