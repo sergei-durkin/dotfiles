@@ -65,6 +65,7 @@ return {
                             ["il"] = "@loop.inner",
                             ["al"] = "@loop.outer",
                             ["at"] = "@comment.outer",
+                            ["in"] = "@assignment.lhs",
                         },
                     },
 
