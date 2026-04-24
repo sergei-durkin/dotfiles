@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
     {
         "ibhagwan/fzf-lua",
@@ -109,7 +111,9 @@ return {
             vim.keymap.set("n", "⌘U", ":FzfLua live_grep resume=true<CR>", { desc = "[S]earch by [G]rep" })
             vim.keymap.set("n", "<leader>sb", ":FzfLua buffers resume=true<CR>", { desc = "[ ] Find existing buffers" })
             vim.keymap.set("n", "<leader>sS", ":FzfLua git_status resume=true<CR>", { desc = "" })
+            vim.keymap.set("n", "<leader>sw", ":FzfLua grep_cWORD<CR>", { desc = "" })
             vim.keymap.set("i", "<c-f>", "<ESC>:FzfLua complete_path<CR>", { desc = "Complete file path" })
         end,
     },
 }
+]]
