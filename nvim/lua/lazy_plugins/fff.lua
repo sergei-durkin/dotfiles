@@ -1,26 +1,50 @@
 return {
     {
-        "dmtrKovalenko/fff.nvim",
+        'dmtrKovalenko/fff.nvim',
         build = function()
             require("fff.download").download_or_build_binary()
         end,
-        lazy = false,
 
-        config = function()
-            require("fff").setup({
-                keymaps = {
-                    close = { "<Esc>", "<C-c>" },
-                    select = "<CR>",
-                    select_split = "<C-s>",
-                    select_vsplit = "<C-v>",
-                    select_tab = "<C-t>",
-                    -- Multiple bindings supported
-                    move_up = { "<Up>", "<C-p>" },
-                    move_down = { "<Down>", "<C-n>" },
-                    preview_scroll_up = "<C-k>",
-                    preview_scroll_down = "<C-j>",
-                },
-            })
-        end,
-    },
+        opts = {
+            debug = {
+                enabled = false,
+                show_scores = true,
+            },
+            keymaps = {
+                preview_scroll_up = '<C-j>',
+                preview_scroll_down = '<C-k>',
+                cycle_previous_query = '<C-t>',
+            },
+        },
+
+        lazy = false,
+        keys = {
+            {
+                "ff",
+                function() require('fff').find_files() end,
+                desc = 'FFFind files',
+            },
+            {
+                "fg",
+                function() require('fff').live_grep() end,
+                desc = 'LiFFFe grep',
+            },
+            {
+                "fz",
+                function()
+                    require('fff').live_grep({
+                        grep = {
+                            modes = { 'fuzzy', 'plain' }
+                        }
+                    })
+                end,
+                desc = 'Live fffuzy grep',
+            },
+            {
+                "fc",
+                function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+                desc = 'Search current word',
+            },
+        }
+    }
 }
