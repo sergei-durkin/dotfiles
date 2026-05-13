@@ -1,5 +1,53 @@
 return {
     {
+        "nvim-mini/mini.files",
+
+        config = function()
+            require("mini.files").setup()
+            local map_split = function(buf_id, lhs, direction, close_on_file)
+                local rhs = function()
+                    local new_target_window
+                    local cur_target_window = require("mini.files").get_explorer_state().target_window
+                    if cur_target_window ~= nil then
+                        vim.api.nvim_win_call(cur_target_window, function()
+                            vim.cmd(direction .. " split")
+                            new_target_window = vim.api.nvim_get_current_win()
+                        end)
+                        require("mini.files").set_target_window(new_target_window)
+                        require("mini.files").go_in({ close_on_file = close_on_file })
+                    end
+                end
+                local desc = "Split " .. direction
+                if close_on_file then
+                    desc = desc .. " and close"
+                end
+                vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+            end
+
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "MiniFilesBufferCreate",
+                callback = function(args)
+                    local buf_id = args.data.buf_id
+                    map_split(buf_id, "<C-w>s", "belowright horizontal", false)
+                    map_split(buf_id, "<C-w>v", "belowright vertical", false)
+                    map_split(buf_id, "<C-w>S", "belowright horizontal", true)
+                    map_split(buf_id, "<C-w>V", "belowright vertical", true)
+                end,
+            })
+        end,
+
+        keys = {
+            {
+                "<leader>e",
+                function()
+                    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+                    require("mini.files").reveal_cwd()
+                end,
+                desc = "Open mini.files (current file)",
+            },
+        },
+    },
+    {
         "nvim-mini/mini.ai",
 
         config = function()

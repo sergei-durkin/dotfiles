@@ -4,3 +4,4 @@ require("plugins.rest_private")
 
 require("plugins.tmux-files").setup()
 require("plugins.watch").setup()
+require("plugins.mini-files-git")
