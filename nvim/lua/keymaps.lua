@@ -47,6 +47,9 @@ vim.keymap.set({ "i" }, "⌃l", "<right>")
 vim.keymap.set({ "n", "v" }, "⌃j", "20jzz", { noremap = true })
 vim.keymap.set({ "n", "v" }, "⌃k", "20kzz", { noremap = true })
 
+vim.keymap.set({ "n", "v" }, "<c-h>", "20jzz", { noremap = true })
+vim.keymap.set({ "n", "v" }, "<c-t>", "20kzz", { noremap = true })
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 
@@ -79,4 +82,4 @@ vim.cmd("unmap gra")
 vim.cmd("unmap gri")
 vim.cmd("unmap grn")
 vim.cmd("unmap grr")
--- vim.cmd("unmap grt")
+vim.cmd("unmap grt")
