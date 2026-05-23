@@ -5,6 +5,8 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {},
+        event = { "BufReadPre", "BufNewFile" },
+        cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonLog" },
         dependencies = {
             {
                 "mason-org/mason.nvim",
@@ -12,7 +14,6 @@ return {
             },
             "neovim/nvim-lspconfig",
             "j-hui/fidget.nvim",
-            "ibhagwan/fzf-lua",
         },
 
         config = function()
@@ -104,16 +105,10 @@ return {
 
             vim.diagnostic.config(config.diagnostic)
 
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, config.float)
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, config.float)
-            vim.lsp.handlers["textDocument/publishDiagnostics"] =
-                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = true })
-
             require("mason-lspconfig").setup()
 
             -- nvim-cmp supports additional completion capabilities
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            local lspconfig = require("lspconfig")
 
             capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
             capabilities.textDocument.foldingRange = {

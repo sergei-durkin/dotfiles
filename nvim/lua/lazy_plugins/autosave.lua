@@ -1,7 +1,7 @@
 return {
     {
         "okuuva/auto-save.nvim",
-        lazy = false,
+        event = "InsertEnter",
 
         config = function()
             require("auto-save").setup()

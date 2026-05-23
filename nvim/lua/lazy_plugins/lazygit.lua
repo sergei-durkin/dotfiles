@@ -1,7 +1,6 @@
 return {
     {
         "kdheepak/lazygit.nvim",
-        lazy = false,
         cmd = {
             "LazyGit",
             "LazyGitConfig",
@@ -9,14 +8,9 @@ return {
             "LazyGitFilter",
             "LazyGitFilterCurrentFile",
         },
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim",
+        keys = {
+            { "<leader>lg", "<cmd>LazyGit<CR>", desc = "LazyGit", silent = true },
         },
-
-        config = function()
-            pcall(require("telescope").load_extension, "lazygit")
-            vim.keymap.set("n", "<leader>lg", ":LazyGit<CR>", { silent = true })
-        end,
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 }

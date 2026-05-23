@@ -1,5 +1,3 @@
-local neotest = require("neotest")
-
 local runCurrentFile = function()
     local command
 
@@ -10,7 +8,7 @@ local runCurrentFile = function()
     end
 
     if vim.fn.expand("%"):match("_test.go$") then
-        neotest.run.run()
+        require("neotest").run.run()
         return
     end
 

@@ -27,4 +27,12 @@ vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = illuminate_color })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = illuminate_color })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = illuminate_color })
 
+for _, kind in ipairs({ "Error", "Warn", "Info", "Hint" }) do
+    local name = "DiagnosticUnderline" .. kind
+    local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
+    hl.underline = false
+    hl.undercurl = true
+    vim.api.nvim_set_hl(0, name, hl)
+end
+
 vim.deprecate = function() end

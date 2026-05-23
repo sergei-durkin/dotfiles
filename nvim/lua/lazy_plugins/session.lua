@@ -1,6 +1,7 @@
 return {
     {
         "tpope/vim-obsession",
+        cmd = "Obsess",
     },
     {
         "rmagatti/auto-session",

@@ -2,8 +2,13 @@ return {
     {
         dir = "~/sandbox/sql-formatter.nvim",
         url = "sergei-durkin/sql-formatter.nvim",
+        lazy = true,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
+        },
+        cmd = "FormatSql",
+        keys = {
+            { "<leader>fs", "<cmd>FormatSql<CR>", desc = "Format SQL", silent = true },
         },
 
         config = function()
@@ -21,8 +26,6 @@ return {
                     keywordCase = "upper",
                 },
             })
-
-            vim.api.nvim_set_keymap("n", "<leader>fs", ":FormatSql<CR>", { noremap = true, silent = true })
         end,
     },
 }
