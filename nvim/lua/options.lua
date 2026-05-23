@@ -1,3 +1,5 @@
+vim.o.winborder = "rounded"
+
 -- Set highlight on search
 vim.o.hlsearch = true
 
@@ -22,7 +24,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.wo.signcolumn = "yes"
 
 --vim.cmd()
@@ -69,5 +71,3 @@ vim.filetype.add({
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.scrolloff = 8
-
-vim.opt.updatetime = 50

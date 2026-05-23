@@ -1,11 +1,13 @@
 return {
     {
         "MagicDuck/grug-far.nvim",
+        cmd = "GrugFar",
+        keys = {
+            { "⌘R", "<cmd>GrugFar<CR>", desc = "Toggle Grug", silent = true },
+        },
 
         config = function()
             require("grug-far").setup()
-
-            vim.keymap.set("n", "⌘R", "<cmd>GrugFar<CR>", { noremap = true, silent = true, desc = "Toggle Grug" })
         end,
     },
 }

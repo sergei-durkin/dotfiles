@@ -1,7 +1,50 @@
 return {
     {
         "rmagatti/goto-preview",
-        event = "BufEnter",
+        keys = {
+            {
+                "gph",
+                function()
+                    require("goto-preview").goto_preview_definition()
+                end,
+                desc = "Goto preview definition",
+            },
+            {
+                "gpk",
+                function()
+                    require("goto-preview").goto_preview_type_definition()
+                end,
+                desc = "Goto preview type definition",
+            },
+            {
+                "gpi",
+                function()
+                    require("goto-preview").goto_preview_implementation()
+                end,
+                desc = "Goto preview implementation",
+            },
+            {
+                "gpD",
+                function()
+                    require("goto-preview").goto_preview_declaration()
+                end,
+                desc = "Goto preview declaration",
+            },
+            {
+                "gpc",
+                function()
+                    require("goto-preview").close_all_win()
+                end,
+                desc = "Close all preview windows",
+            },
+            {
+                "gpr",
+                function()
+                    require("goto-preview").goto_preview_references()
+                end,
+                desc = "Goto preview references",
+            },
+        },
 
         config = function()
             require("goto-preview").setup({
@@ -14,7 +57,7 @@ return {
                 resizing_mappings = false,
                 post_open_hook = nil,
                 references = {
-                    telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
+                    provider = "default",
                 },
                 focus_on_open = true,
                 dismiss_on_move = false,
@@ -23,14 +66,6 @@ return {
                 stack_floating_preview_windows = true,
                 preview_window_title = { enable = true, position = "left" },
             })
-
-            -- Keymaps
-            vim.keymap.set("n", "gph", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
-            vim.keymap.set("n", "gpk", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
-            vim.keymap.set("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
-            vim.keymap.set("n", "gpD", "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>")
-            vim.keymap.set("n", "gpc", "<cmd>lua require('goto-preview').close_all_win()<CR>")
-            vim.keymap.set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
         end,
     },
 }

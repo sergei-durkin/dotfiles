@@ -4,6 +4,7 @@ return {
         main = "render-markdown",
         opts = {},
         name = "render-markdown",
+        ft = { "markdown" },
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons",
@@ -19,14 +20,6 @@ return {
     },
     {
         "preservim/vim-pencil",
-    },
-    {
-        "epwalsh/obsidian.nvim",
-        version = "*",
-        lazy = true,
-        ft = "markdown",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
+        ft = { "markdown" },
     },
 }

@@ -113,3 +113,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,bg=black,bold,underline"
 
 export PATH="$PATH:~/.lmstudio/bin"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$PATH:/usr/local/"
+export PATH="$HOME/.local/nvim-nightly/bin:$PATH"

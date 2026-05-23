@@ -16,9 +16,23 @@ return {
             },
         },
 
+        keys = {
+            { "<space>ra", function() require("neotest").run.attach() end, desc = "[t]est [a]ttach" },
+            { "<space>rf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "[t]est run [f]ile" },
+            { "<space>rA", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "[t]est [A]ll files" },
+            { "<space>rS", function() require("neotest").run.run({ suite = true }) end, desc = "[t]est [S]uite" },
+            { "<space>rl", function() require("neotest").run.run() end, desc = "[t]est [n]earest" },
+            { "<space>rn", function() require("neotest").run.run_last() end, desc = "[t]est [l]ast" },
+            { "<space>rs", function() require("neotest").summary.toggle() end, desc = "[t]est [s]ummary" },
+            { "<space>ro", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "[t]est [o]utput" },
+            { "<space>rO", function() require("neotest").output_panel.toggle() end, desc = "[t]est [O]utput panel" },
+            { "<space>rt", function() require("neotest").run.stop() end, desc = "[t]est [t]erminate" },
+            { "<space>rd", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end, desc = "Debug nearest test" },
+            { "<space>rD", function() require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) end, desc = "Debug current file" },
+        },
+
         config = function()
-            local neotest = require("neotest")
-            neotest.setup({
+            require("neotest").setup({
                 adapters = {
                     require("neotest-golang")({
                         warn_test_name_dupes = false,
@@ -30,43 +44,6 @@ return {
                     }),
                 },
             })
-
-            vim.keymap.set("n", "<space>ra", function()
-                neotest.run.attach()
-            end, { desc = "[t]est [a]ttach", noremap = true })
-            vim.keymap.set("n", "<space>rf", function()
-                neotest.run.run(vim.fn.expand("%"))
-            end, { desc = "[t]est run [f]ile", noremap = true })
-            vim.keymap.set("n", "<space>rA", function()
-                neotest.run.run(vim.uv.cwd())
-            end, { desc = "[t]est [A]ll files", noremap = true })
-            vim.keymap.set("n", "<space>rS", function()
-                neotest.run.run({ suite = true })
-            end, { desc = "[t]est [S]uite", noremap = true })
-            vim.keymap.set("n", "<space>rl", function()
-                neotest.run.run()
-            end, { desc = "[t]est [n]earest", noremap = true })
-            vim.keymap.set("n", "<space>rn", function()
-                neotest.run.run_last()
-            end, { desc = "[t]est [l]ast", noremap = true })
-            vim.keymap.set("n", "<space>rs", function()
-                neotest.summary.toggle()
-            end, { desc = "[t]est [s]ummary", noremap = true })
-            vim.keymap.set("n", "<space>ro", function()
-                neotest.output.open({ enter = true, auto_close = true })
-            end, { desc = "[t]est [o]utput", noremap = true })
-            vim.keymap.set("n", "<space>rO", function()
-                neotest.output_panel.toggle()
-            end, { desc = "[t]est [O]utput panel", noremap = true })
-            vim.keymap.set("n", "<space>rt", function()
-                neotest.run.stop()
-            end, { desc = "[t]est [t]erminate", noremap = true })
-            vim.keymap.set("n", "<space>rd", function()
-                neotest.run.run({ suite = false, strategy = "dap" })
-            end, { desc = "Debug nearest test", noremap = true })
-            vim.keymap.set("n", "<space>rD", function()
-                neotest.run.run({ vim.fn.expand("%"), strategy = "dap" })
-            end, { desc = "Debug current file", noremap = true })
         end,
     },
 }
