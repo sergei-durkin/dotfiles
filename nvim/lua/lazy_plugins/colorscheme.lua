@@ -4,6 +4,7 @@ return {
 
         config = function()
             vim.o.termguicolors = true
+            -- vim.cmd.colorscheme("default")
             -- vim.cmd.colorscheme("catppuccin-macchiato")
             -- vim.cmd.colorscheme("darcula-dark")
             -- vim.cmd.colorscheme("monochrome")
